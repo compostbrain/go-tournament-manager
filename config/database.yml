@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: go-tournament-manager
+  password: go-tournament-manager
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Go-Tournament-Manager_development
+
+test:
+  <<: *default
+  database: Go-Tournament-Manager_test
+
+production:
+  <<: *default
+  database: Go-Tournament-Manager_production
+  username: Go-Tournament-Manager
+  password: <%= ENV['GO-TOURNAMENT-MANAGER_DATABASE_PASSWORD'] %>
