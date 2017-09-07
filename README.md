@@ -36,10 +36,7 @@ createuser --createdb --login -P go-tournament-manager```
     host: localhost
   > username: go-tournament-manager
   > password: go-tournament-manager
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    ```
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>```
 - enter in CL:
 ```
-bin/rails db:set-up
-bin/rails db:migrate
-```
+bin/rails db:set-up && bin/rails db:migrate```
