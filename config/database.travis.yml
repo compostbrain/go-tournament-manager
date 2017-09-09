@@ -1,0 +1,5 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: Go-Tournament-Manager_test

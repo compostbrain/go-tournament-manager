@@ -2,6 +2,7 @@ language: ruby
 rvm:
   - 2.4.1
 before_script:
+  - cp config/database.travis.yml config/database.yml
   - bin/rails db:create db:migrate
 script:
   - bin/rubocop
