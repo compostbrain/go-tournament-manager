@@ -35,4 +35,5 @@ end
 gem "devise", "~> 4.3"
 gem "faker", git: "git://github.com/stympy/faker.git", branch: "master"
 gem "materialize-sass", "~> 0.100.2"
+gem 'material_icons'
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
