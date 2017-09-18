@@ -1,0 +1,3 @@
+class TournamentController
+
+end
