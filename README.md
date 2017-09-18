@@ -7,7 +7,7 @@ Rails Version 5.1.2
 
 ## Models
 - Player
-- User/Admin
+- X User/Admin
 - Pairing
 - tournament
 - Rounds
