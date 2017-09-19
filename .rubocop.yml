@@ -4,7 +4,7 @@ AllCops:
     - vendor/**/*
     - config/environments/*
     - config/initializers/*
-    - spec/models/user_spec.rb
+    - spec/**/*
 
 
 Style/AccessorMethodName:

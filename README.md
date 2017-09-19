@@ -9,7 +9,7 @@ Rails Version 5.1.2
 - Player
 - X User/Admin
 - Pairing
-- tournament
+- X tournament
 - Rounds
 
 ## Features

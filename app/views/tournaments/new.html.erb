@@ -1,0 +1,10 @@
+<%= form_for @tournament do |f| %>
+  <%= render "shared/errors", object: @tournament %>
+  <%= f.text_field :name %>
+  <%= f.text_field :location %>
+  <%= f.text_field :director %>
+  <%= f.date_field :begin_date %>
+  <%= f.date_field :end_date %>
+  <%= f.submit 'Save'%>
+
+<% end %>

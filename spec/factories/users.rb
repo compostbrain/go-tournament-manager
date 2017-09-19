@@ -9,6 +9,13 @@ FactoryGirl.define do
     email { generate :email }
     password "asdfasdf"
     password_confirmation "asdfasdf"
-    # phone "5551231234"
+  end
+
+  factory :admin_user do
+    first_name "John"
+    last_name "Doe"
+    email { generate :email }
+    password "asdfasdf"
+    password_confirmation "asdfasdf"
   end
 end
