@@ -38,3 +38,4 @@ gem "jquery-rails"
 gem "material_icons"
 gem "materialize-sass", "~> 0.100.2"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
+gem "webpacker", "~> 3.0"
