@@ -5,6 +5,9 @@ AllCops:
     - config/environments/*
     - config/initializers/*
     - spec/**/*
+    - bin/webpack
+    - bin/webpack-dev-server
+    - node_modules/**/*
 
 
 Style/AccessorMethodName:

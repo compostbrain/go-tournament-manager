@@ -5,6 +5,8 @@
     "@angular/common": "^4.4.2",
     "@angular/compiler": "^4.4.2",
     "@angular/core": "^4.4.2",
+    "@angular/forms": "^4.4.2",
+    "@angular/http": "^4.4.2",
     "@angular/platform-browser": "^4.4.2",
     "@angular/platform-browser-dynamic": "^4.4.2",
     "@rails/webpacker": "^3.0.1",
@@ -16,6 +18,13 @@
     "zone.js": "^0.8.17"
   },
   "devDependencies": {
+    "jasmine": "^2.8.0",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^2.0.4",
+    "testdouble": "^3.2.6",
     "webpack-dev-server": "^2.8.2"
   }
 }
