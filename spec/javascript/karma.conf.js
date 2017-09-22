@@ -7,6 +7,8 @@ module.exports = function(config) {
     preprocessors: {
       '**/*.spec.js': [ 'webpack' ]
     },
-    webpack: require('../../config/webpack/test.js'),
-    browsers: ['PhantomJS'] })
+    webpack: require('../../config/webpack/karma.js'),
+    browsers: ['PhantomJS'],
+    autoWatch: true
+   })
 }

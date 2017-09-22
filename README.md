@@ -7,7 +7,7 @@ Rails Version 5.1.2
 
 ## Models
 - Player
-- X User/Admin
+- [ X ] User/Admin
 - Pairing
 - X tournament
 - Rounds
@@ -26,10 +26,11 @@ Rails Version 5.1.2
 
 
 # Database set-up
--  enter in CL:```
+-  enter in CL:
+```script
 createuser --createdb --login -P go-tournament-manager```
 - add these lines to config/database.yml:
-```
+```ruby
     default: &default
     adapter: postgresql
     encoding: unicode
@@ -38,5 +39,6 @@ createuser --createdb --login -P go-tournament-manager```
   > password: go-tournament-manager
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>```
 - enter in CL:
-```
-bin/rails db:set-up && bin/rails db:migrate```
+```script
+bin/rails db:set-up
+bin/rails db:migrate```
