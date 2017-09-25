@@ -14,7 +14,7 @@ FactoryGirl.define do
     password_confirmation "asdfasdf"
   end
 
-  factory :tournament_director do
+  factory :tournament_director, class: "TournamentDirector" do
     first_name "John"
     last_name "Doe"
     email { generate :email }

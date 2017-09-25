@@ -4,7 +4,7 @@
     .row
       .input-field.col.s12.center
         p.center.login-form-text
-        h2 Register
+        h2 Tournament Director Registration:
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .row.margin
         = devise_error_messages!
@@ -34,5 +34,5 @@
 
       .row
         .actions.col.s12
-          = f.submit "Register", class: "btn waves-effect waves-light col s12"
+          = f.submit "Sign up", class: "btn waves-effect waves-light col s12"
     = render "devise/shared/links"
