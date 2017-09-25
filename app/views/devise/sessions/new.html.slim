@@ -7,12 +7,10 @@
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .row.margin
         .input-field.col.s12
-          i.mdi-social-person-outline.prefix
           = f.label :email, class: "center-align"
           = f.email_field :email, autofocus: true
       .row.margin
         .input-field.col.s12
-          i.mdi-social-person-outline.prefix
           = f.label :password, class: "center-align"
           = f.password_field :password, autocomplete: "off"
       - if devise_mapping.rememberable?

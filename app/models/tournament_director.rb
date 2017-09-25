@@ -1,3 +1,3 @@
 class TournamentDirector < User
-  validates 
+  validates
 end
