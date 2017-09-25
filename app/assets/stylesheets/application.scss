@@ -1,3 +1,5 @@
 @import "materialize/components/color";
+$primary-color: color("black", "lighten-2") !default;
+$secondary-color: color("grey", "base") !default;
 @import "material_icons";
 @import "materialize";
