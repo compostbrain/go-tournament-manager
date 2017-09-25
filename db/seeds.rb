@@ -9,4 +9,17 @@
   )
 end
 
+100.times do |player|
+  Player.create!(
+    first_name:
+  )
+
+last_name
+rank
+aga_number
+  t.date "membership_exp_date", null: false
+  t.decimal "rating", null: false
+  t.string "chapter_affiliation", null: false
+  t.string "state
+
 puts "5 Tournaments created."
