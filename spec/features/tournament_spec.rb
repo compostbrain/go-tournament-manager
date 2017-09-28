@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe 'navigate' do
+describe 'navigate', :js => true do
   describe "#index" do
     it "can be reached successfully" do
       visit tournaments_path

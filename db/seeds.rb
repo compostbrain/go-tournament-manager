@@ -1,3 +1,4 @@
+require 'RandomData'
 5.times do |tournament|
   date = Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today)
   Tournament.create!(
@@ -10,16 +11,19 @@
 end
 
 100.times do |player|
+  fake_rank = RandomData.random_rank,
   Player.create!(
-    first_name:
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    rank: fake_rank
+    aga_number: Faker::Number.decimal(1,3),
+    membership_exp_date: Faker::Date.between_except(1.from_now, 2.year.from_now, Date.today),
+    rating:
+    chapter_affiliation: RandomData.random_chapter,
+    state: Faker::Address.state_abbr
   )
 
-last_name
-rank
-aga_number
-  t.date "membership_exp_date", null: false
-  t.decimal "rating", null: false
-  t.string "chapter_affiliation", null: false
-  t.string "state
+
 
 puts "5 Tournaments created."
+puts "100 Players created."
