@@ -1,0 +1,26 @@
+= render "shared/navbar"
+#login-page.container.row
+  .col.s12.z-depth-4.card-panel
+    .row
+      .input-field.col.s12.center
+        p.center.login-form-text
+        h2 Tournament Director Log In:
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .row.margin
+        = devise_error_messages!
+      .row.margin
+        .input-field.col.s12
+          = f.label :email, class: "center-align"
+          = f.email_field :email, autofocus: true
+      .row.margin
+        .input-field.col.s12
+          = f.label :password, class: "center-align"
+          = f.password_field :password, autocomplete: "off"
+      - if devise_mapping.rememberable?
+        .input-field.col.s12.m12.l12
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .row
+        .actions.input-field.col.s12
+          = f.submit "Log in", class: "btn waves-effect waves-light col s12"
+    = render "devise/shared/links"

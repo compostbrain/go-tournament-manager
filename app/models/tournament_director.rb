@@ -1,0 +1,2 @@
+class TournamentDirector < User
+end
