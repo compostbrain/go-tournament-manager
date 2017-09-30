@@ -9,6 +9,7 @@
     "@angular/http": "^4.4.2",
     "@angular/platform-browser": "^4.4.2",
     "@angular/platform-browser-dynamic": "^4.4.2",
+    "@angular/router": "^4.4.4",
     "@rails/webpacker": "^3.0.1",
     "core-js": "^2.5.1",
     "jquery": "^3.2.1",

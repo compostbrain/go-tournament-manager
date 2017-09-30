@@ -1,0 +1,80 @@
+<div class="container player-registration-form">
+  <div class="row">
+    <div class="col s6">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="row s12 center">Player Registration</div>
+        <div class="row margin">
+          <div class="input-field col s5">
+            <label for="first_name">first name</label>
+            <input
+              type="text"
+              id="first_name"
+              formControlName="first_name"
+              class="form-control">
+          </div>
+          <div class="input-field col s5">
+            <label for="last_name">last name</label>
+            <input
+              type="text"
+              id="last_name"
+              formControlName="last_name"
+              class="form-control">
+          </div>
+          <div class="input-field col s2">
+            <label for="rank">rank</label>
+            <input type="text"
+                   id="rank"
+                   formControlName="rank"
+                   class="mat-form-field">
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s2">
+            <label for="aga_number">aga #</label>
+            <input type="text"
+            id="aga_number"
+            formControlName="aga_number"
+            class="mat-form-field">
+          </div>
+          <div class="input-field col s3">
+            <label for="membership_exp_date">exp date</label>
+            <input type="text"
+            id="membership_exp_date"
+            formControlName="membership_exp_date"
+            class="mat-form-field">
+          </div>
+          <div class="input-field col s3">
+            <label for="rating">rating</label>
+            <input type="text"
+            id="rating"
+            formControlName="rating"
+            class="mat-form-field">
+          </div>
+          <div class="input-field col s2">
+            <label for="chapter_affiliation">chapter</label>
+            <input type="text"
+            id="chapter_affiliation"
+            formControlName="chapter_affiliation"
+            class="mat-form-field">
+          </div>
+          <div class="input-field col s2">
+            <label for="state">state</label>
+            <input type="text"
+            id="state"
+            formControlName="state"
+            class="mat-form-field">
+          </div>
+          <p class="margin" *ngFor="let registration of registration_status">
+            <input
+                   type="checkbox"
+                   id="{{ registration }}"
+                   formControlName="registration"
+                  />
+            <label for="{{ registration }}">{{ registration }}</label>
+          </p>
+        </div>
+        <button class="waves-effect waves-light btn" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
