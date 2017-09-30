@@ -1,5 +1,4 @@
 require 'RandomData'
-<<<<<<< HEAD
 1.times do |tournament_director|
   TournamentDirector.create!(
     first_name: "Jason",
@@ -10,8 +9,6 @@ require 'RandomData'
   )
 end
 
-=======
->>>>>>> configured for html templates Angular/TS/Webpack
 5.times do |tournament|
   date = Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today)
   Tournament.create!(
@@ -36,11 +33,6 @@ end
     state: Faker::Address.state_abbr
   )
 
-<<<<<<< HEAD
 puts "1 Tournament Director Created: jason@dragonslayer.com"
-=======
-
-
->>>>>>> configured for html templates Angular/TS/Webpack
 puts "5 Tournaments created."
 puts "100 Players created."

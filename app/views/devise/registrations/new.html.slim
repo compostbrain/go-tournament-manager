@@ -5,27 +5,16 @@
       .input-field.col.s12.center
         p.center.login-form-text
         h2 Tournament Director Registration:
-<<<<<<< HEAD
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-=======
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
->>>>>>> added pairings and round models
       .row.margin
         = devise_error_messages!
       .row.margin
         .input-field.col.s6
           = f.label :first_name, class: "center-align"
-<<<<<<< HEAD
           = f.text_field :first_name, autofocus: true
         .input-field.col.s6
           = f.label :last_name, class: "center-align"
           = f.text_field :last_name
-=======
-          = f.text_field :email, autofocus: true
-        .input-field.col.s6
-          = f.label :last_name, class: "center-align"
-          = f.text_field :email
->>>>>>> added pairings and round models
       .row.margin
         .input-field.col.s12
           = f.label :email, class: "center-align"
