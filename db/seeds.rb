@@ -1,4 +1,5 @@
-require 'RandomData'
+require 'random_data'
+
 1.times do |tournament_director|
   TournamentDirector.create!(
     first_name: "Jason",
@@ -21,17 +22,18 @@ end
 end
 
 100.times do |player|
-  fake_rank = RandomData.random_rank,
+  fake_rank = RandomData.random_rank
   Player.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    rank: fake_rank
-    aga_number: Faker::Number.decimal(1,3),
-    membership_exp_date: Faker::Date.between_except(1.from_now, 2.year.from_now, Date.today),
-    rating:
+    rank: fake_rank,
+    aga_number: Faker::Number.number(5),
+    membership_exp_date: Faker::Date.between_except(1.year.from_now, 2.year.from_now, Date.today),
+    rating: RandomData.rating_from_rank(fake_rank),
     chapter_affiliation: RandomData.random_chapter,
     state: Faker::Address.state_abbr
   )
+end
 
 puts "1 Tournament Director Created: jason@dragonslayer.com"
 puts "5 Tournaments created."

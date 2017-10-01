@@ -11,13 +11,20 @@ module RandomData
     random_rank = rank_letters.sample
     if random_rank == "K"
       random_rank = "#{rand(1..30)}" + random_rank
-    else random_rank = "#{rand(1..30)}" + random_rank
+    else random_rank = "#{rand(1..9)}" + random_rank
     end
-
-    def self.rating_from_rank(rating)
-      rating_from_rank = rating.to_a.map {|x| x[/\d+/]}
-
-    end
-
-
   end
+
+  def self.rating_from_rank(rating)
+    category = rating[-1]
+    calc_rating = rating.slice(/(\d+)/).to_i
+    case category
+      when "K"
+        rating = calc_rating * -1
+      when "D"
+        rating = calc_rating
+      when "P"
+        rating = calc_rating * 10
+    end
+  end
+end
