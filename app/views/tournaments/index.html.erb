@@ -1,20 +1,18 @@
-<%= render "shared/navbar" %>
 <div class="container">
 
-<h1>Tournaments</h1>
-<table class="highlight">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Director</th>
-            <th>Begin Date</th>
-            <th>End Date</th>
-          </tr>
-        </thead>
+  <h1>Tournaments</h1>
+  <table class="highlight">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Begin Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
 
-        <tbody>
-          <%= render @tournaments %>
-        </tbody>
-      </table>
+    <tbody>
+      <%= render @tournaments %>
+    </tbody>
+  </table>
 </div>

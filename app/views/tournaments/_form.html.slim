@@ -3,7 +3,12 @@
     .row
       .input-field.col.s12.center
         p.center.tournaments-new-form-text
-        h2 New Tournament:
+        h2
+          span New Tournament:
+        h5
+          span Tournament Director: 
+          = current_user.full_name
+
     = form_for @tournament do |f|
       .row.margin
         = render "shared/alerts", object: @tournament
@@ -15,10 +20,7 @@
         .input-field.col.s12
           = f.label :location
           = f.text_field :location
-      .row.margin
-        .input-field.col.s12
-          = f.label :director
-          = f.text_field :director
+
       .row.margin
         .input-field.col.s6
           = f.label :begin_date

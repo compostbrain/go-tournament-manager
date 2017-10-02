@@ -17,11 +17,11 @@ RSpec.describe User, type: :model do
 
       expect(factory_tournament).to_not be_valid
     end
-    it 'cannont be created without a director' do
-      factory_tournament.director = nil
-
-      expect(factory_tournament).to_not be_valid
-    end
+    # it 'cannont be created without a director' do
+    #   factory_tournament.director = nil
+    #
+    #   expect(factory_tournament).to_not be_valid
+    # end
     it 'cannont be created without a begin_date' do
       factory_tournament.begin_date = nil
 

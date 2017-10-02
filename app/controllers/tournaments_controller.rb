@@ -11,7 +11,7 @@ class TournamentsController < ApplicationController
 
   def create
     @tournament = Tournament.new(tournament_params)
-
+    @tournament.user_id = current_user.id
     if @tournament.save
       redirect_to @tournament, notice: "New tournament created"
     else
