@@ -3,7 +3,7 @@ default: &default
   encoding: unicode
   host: localhost
   username: go-tournament-manager
-  password: go-tournament-manager
+  password: asdfasdf
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:

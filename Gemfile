@@ -41,4 +41,4 @@ gem "materialize-sass", "~> 0.100.2"
 gem "simple_form"
 gem "slim"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-gem "webpacker", "~> 3.0"
+gem "webpacker", github: "rails/webpacker"

@@ -1,7 +1,9 @@
 class TournamentsController < ApplicationController
   before_action :set_tournament, only: %i[show edit update destroy]
 
-  def index; end
+  def index
+    @tournaments = Tournament.all
+  end
 
   def new
     @tournament = Tournament.new
@@ -10,8 +12,11 @@ class TournamentsController < ApplicationController
   def create
     @tournament = Tournament.new(tournament_params)
 
-    @tournament.save
-    redirect_to @tournament
+    if @tournament.save
+      redirect_to @tournament, notice: "New tournament created"
+    else
+      render :new
+    end
   end
 
   def show; end

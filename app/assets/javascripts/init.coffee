@@ -1,4 +1,12 @@
 $(document).on 'ready turbolinks:load', ->
+  $('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 15,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false
+  });
   $(".button-collapse").sideNav();
   $('.dropdown-button').dropdown()
   $('.modal').modal();
