@@ -12,4 +12,6 @@ html
     - else
       = render "shared/navbar"
     = render "shared/alerts"
+    - if current_user
+      = render "shared/sidenav"
     = yield

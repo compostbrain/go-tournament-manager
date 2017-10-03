@@ -5,9 +5,16 @@ $(document).on 'ready turbolinks:load', ->
     today: 'Today',
     clear: 'Clear',
     close: 'Ok',
-    closeOnSelect: false
+    closeOnSelect: true
   });
-  $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav({
+      menuWidth: 200,
+      edge: 'left',
+      closeOnClick: true,
+      draggable: true
+    }
+  );
+  $('.collapsible').collapsible();
   $('.dropdown-button').dropdown()
   $('.modal').modal();
   $('select').material_select();
