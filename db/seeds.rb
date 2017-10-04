@@ -20,6 +20,7 @@ require 'random_data'
     end_date: date + 1
   )
 end
+tournaments = Tournament.all
 
 100.times do |player|
   fake_rank = RandomData.random_rank
@@ -31,7 +32,9 @@ end
     membership_exp_date: Faker::Date.between_except(1.year.from_now, 2.year.from_now, Date.today),
     rating: RandomData.rating_from_rank(fake_rank),
     chapter_affiliation: RandomData.random_chapter,
-    state: Faker::Address.state_abbr
+    state: Faker::Address.state_abbr,
+    tournament: tournaments.first
+
   )
 end
 

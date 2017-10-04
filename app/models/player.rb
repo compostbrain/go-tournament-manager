@@ -5,4 +5,8 @@ class Player < ApplicationRecord
     players = Players.all
     players.sort_by(&:rating)
   end
+
+  def full_name
+    first_name.upcase + " " + last_name.upcase
+  end
 end
