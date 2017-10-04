@@ -1,12 +1,13 @@
 FactoryGirl.define do
   factory :player do
-    first_name "MyString"
-    last_name "MyString"
-    rank "MyString"
-    aga_number "MyString"
+    first_name "James"
+    last_name "Doe"
+    rank "7K"
+    aga_number "12345"
     membership_exp_date "2017-09-25"
-    rating ""
-    chapter_affiliation "MyString"
-    state "MyString"
+    rating "-7"
+    chapter_affiliation "NOVA"
+    state "MD"
+    tournament
   end
 end

@@ -2,7 +2,7 @@ class TournamentsController < ApplicationController
   before_action :set_tournament, only: %i[show edit update destroy]
 
   def index
-    @tournaments = Tournament.all
+    @tournaments = Tournament.order(created_at: :desc)
   end
 
   def new
@@ -27,9 +27,9 @@ class TournamentsController < ApplicationController
     params.require(:tournament).permit(
       :name,
       :location,
-      :director,
       :begin_date,
       :end_date,
+      :rounds,
     )
   end
 

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :round do
-    references ""
+    tournament
     number 1
   end
 end

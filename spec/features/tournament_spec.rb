@@ -7,6 +7,7 @@ describe 'navigate' do
   before do
     sign_in tournament_director
   end
+  
   describe "#index" do
     it "can be reached successfully" do
       visit tournaments_path
@@ -30,6 +31,7 @@ describe 'navigate' do
       fill_in 'tournament[begin_date]', with: Date.today
       fill_in 'tournament[end_date]', with: Date.tomorrow
 
+
       click_on "Save"
 
       expect(page).to have_content("Return of the Jedi")
@@ -40,6 +42,7 @@ describe 'navigate' do
       fill_in 'tournament[location]', with: "Saturns Rings"
       fill_in 'tournament[begin_date]', with: Date.today
       fill_in 'tournament[end_date]', with: Date.tomorrow
+
 
       click_on "Save"
 

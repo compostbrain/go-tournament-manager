@@ -6,7 +6,7 @@
         h2
           span New Tournament:
         h5
-          span Tournament Director: 
+          span Tournament Director:
           = current_user.full_name
 
     = form_for @tournament do |f|
@@ -22,12 +22,15 @@
           = f.text_field :location
 
       .row.margin
-        .input-field.col.s6
+        .input-field.col.s4
           = f.label :begin_date
           = f.text_field :begin_date, class: "datepicker"
-        .input-field.col.s6
+        .input-field.col.s4
           = f.label :end_date
           = f.text_field :end_date, class: "datepicker"
+        / .input-field.col.s4
+        /   = f.label :number_of_rounds
+        /   = f.text_field(:round, :number)
       .row.margin
         .actions.col.s12
           = f.submit 'Save', class: "btn waves-effect waves-light col s12"
