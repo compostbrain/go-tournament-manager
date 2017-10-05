@@ -7,5 +7,11 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    - if content_for?(:navbar)
+      = yield(:navbar)
+    - else
+      = render "shared/navbar"
     = render "shared/alerts"
+    - if current_user
+      = render "shared/sidenav"
     = yield

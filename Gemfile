@@ -23,10 +23,12 @@ group :development, :test do
   gem "poltergeist"
   gem "rspec-rails", "~> 3.6", ">= 3.6.1"
   gem "rubocop"
+  gem "shoulda"
 end
 
 group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
+  gem "meta_request"
   gem "pry-rails"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
@@ -40,5 +42,6 @@ gem "material_icons"
 gem "materialize-sass", "~> 0.100.2"
 gem "simple_form"
 gem "slim"
+gem "swissper"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-gem "webpacker", "~> 3.0"
+gem "webpacker", github: "rails/webpacker"

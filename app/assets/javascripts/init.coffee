@@ -1,5 +1,20 @@
 $(document).on 'ready turbolinks:load', ->
-  $(".button-collapse").sideNav();
+  $('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 15,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: true
+  });
+  $('.button-collapse').sideNav({
+      menuWidth: 200,
+      edge: 'left',
+      closeOnClick: true,
+      draggable: true
+    }
+  );
+  $('.collapsible').collapsible();
   $('.dropdown-button').dropdown()
   $('.modal').modal();
   $('select').material_select();

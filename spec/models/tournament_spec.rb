@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Tournament, type: :model do
   let! :factory_tournament { create(:tournament) }
+
+  it { is_expected.to have_many(:rounds) }
 
   describe "creation" do
     it 'can be created' do
@@ -17,11 +19,11 @@ RSpec.describe User, type: :model do
 
       expect(factory_tournament).to_not be_valid
     end
-    it 'cannont be created without a director' do
-      factory_tournament.director = nil
-
-      expect(factory_tournament).to_not be_valid
-    end
+    # it 'cannont be created without a director' do
+    #   factory_tournament.director = nil
+    #
+    #   expect(factory_tournament).to_not be_valid
+    # end
     it 'cannont be created without a begin_date' do
       factory_tournament.begin_date = nil
 
@@ -32,6 +34,5 @@ RSpec.describe User, type: :model do
 
       expect(factory_tournament).to_not be_valid
     end
-
   end
 end

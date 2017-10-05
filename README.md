@@ -18,11 +18,11 @@ Rails Version 5.1.2
 - SMS texting of pairings
 -
 
-
-
-
 # UI
 - Use Materialize-sass
+
+# TODOS
+-  X add a rake task to run webpack for tests
 
 
 # Database set-up

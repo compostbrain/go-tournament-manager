@@ -1,7 +1,9 @@
 class TournamentsController < ApplicationController
   before_action :set_tournament, only: %i[show edit update destroy]
 
-  def index; end
+  def index
+    @tournaments = Tournament.order(created_at: :desc)
+  end
 
   def new
     @tournament = Tournament.new
@@ -9,9 +11,12 @@ class TournamentsController < ApplicationController
 
   def create
     @tournament = Tournament.new(tournament_params)
-
-    @tournament.save
-    redirect_to @tournament
+    @tournament.user_id = current_user.id
+    if @tournament.save
+      redirect_to @tournament, notice: "New tournament created"
+    else
+      render :new, notice: "There was an error."
+    end
   end
 
   def show; end
@@ -22,9 +27,9 @@ class TournamentsController < ApplicationController
     params.require(:tournament).permit(
       :name,
       :location,
-      :director,
       :begin_date,
       :end_date,
+      :number_of_rounds,
     )
   end
 

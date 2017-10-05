@@ -1,4 +1,4 @@
-= render "shared/navbar"
+
 #login-page.container.row
   .col.s12.z-depth-4.card-panel
     .row
@@ -6,6 +6,7 @@
         p.center.login-form-text
         h2 Tournament Director Registration:
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+
       .row.margin
         = devise_error_messages!
       .row.margin
