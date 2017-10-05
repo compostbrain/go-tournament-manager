@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#index"
   resources :tournaments, only: %i[index new create edit show update destroy] do
     resources :rounds, only: %i[index show create destroy] do
-      resources :pairings, only: %i[index create destoy]
+      resources :games, only: %i[index create destoy]
     end
     resources :players, only: %i[index create update destroy]
   end
