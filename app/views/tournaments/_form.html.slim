@@ -14,7 +14,7 @@
         = render "shared/alerts", object: @tournament
       .row.margin
         .input-field.col.s12
-          = f.label :name, class: "center-align"
+          = f.label :name, class: "center-align", autofocus: true
           = f.text_field :name
       .row.margin
         .input-field.col.s12
@@ -28,9 +28,9 @@
         .input-field.col.s4
           = f.label :end_date
           = f.text_field :end_date, class: "datepicker"
-        / .input-field.col.s4
-        /   = f.label :number_of_rounds
-        /   = f.text_field(:round, :number)
+        .input-field.col.s4
+          = f.label :number_of_rounds
+          = f.number_field :number_of_rounds
       .row.margin
         .actions.col.s12
           = f.submit 'Save', class: "btn waves-effect waves-light col s12"

@@ -17,7 +17,8 @@ require 'random_data'
     name: Faker::Hobbit.quote,
     location: Faker::Hobbit.location,
     begin_date: date,
-    end_date: date + 1
+    end_date: date + 1,
+    number_of_rounds: 4
   )
 end
 tournaments = Tournament.all

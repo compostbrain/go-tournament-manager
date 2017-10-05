@@ -4,6 +4,7 @@ FactoryGirl.define do
     location "Washington D.C."
     begin_date "2017-09-18"
     end_date "2017-09-18"
+    number_of_rounds 4
     user
   end
 end

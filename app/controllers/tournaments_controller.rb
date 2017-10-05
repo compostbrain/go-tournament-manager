@@ -15,7 +15,7 @@ class TournamentsController < ApplicationController
     if @tournament.save
       redirect_to @tournament, notice: "New tournament created"
     else
-      render :new
+      render :new, notice: "There was an error."
     end
   end
 
@@ -29,7 +29,7 @@ class TournamentsController < ApplicationController
       :location,
       :begin_date,
       :end_date,
-      :rounds,
+      :number_of_rounds,
     )
   end
 

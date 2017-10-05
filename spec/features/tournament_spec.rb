@@ -7,7 +7,7 @@ describe 'navigate' do
   before do
     sign_in tournament_director
   end
-  
+
   describe "#index" do
     it "can be reached successfully" do
       visit tournaments_path
@@ -30,6 +30,7 @@ describe 'navigate' do
       fill_in 'tournament[location]', with: "Saturns Rings"
       fill_in 'tournament[begin_date]', with: Date.today
       fill_in 'tournament[end_date]', with: Date.tomorrow
+      fill_in 'tournament[number_of_rounds]', with: 4
 
 
       click_on "Save"
@@ -42,7 +43,7 @@ describe 'navigate' do
       fill_in 'tournament[location]', with: "Saturns Rings"
       fill_in 'tournament[begin_date]', with: Date.today
       fill_in 'tournament[end_date]', with: Date.tomorrow
-
+      fill_in 'tournament[number_of_rounds]', with: 4
 
       click_on "Save"
 
