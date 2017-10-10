@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005164936) do
+ActiveRecord::Schema.define(version: 20171006192454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,19 @@ ActiveRecord::Schema.define(version: 20171005164936) do
     t.string "rank", null: false
     t.string "aga_number", null: false
     t.date "membership_exp_date", null: false
-    t.integer "rating", null: false
+    t.decimal "rating", null: false
     t.string "chapter_affiliation", null: false
     t.string "state", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "tournament_id"
     t.index ["tournament_id"], name: "index_players_on_tournament_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.string "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rounds", force: :cascade do |t|
@@ -53,9 +59,6 @@ ActiveRecord::Schema.define(version: 20171005164936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "player_id"
-    t.integer "number_of_rounds"
-    t.index ["player_id"], name: "index_tournaments_on_player_id"
     t.index ["user_id"], name: "index_tournaments_on_user_id"
   end
 
@@ -82,6 +85,5 @@ ActiveRecord::Schema.define(version: 20171005164936) do
   add_foreign_key "games", "rounds"
   add_foreign_key "players", "tournaments"
   add_foreign_key "rounds", "tournaments"
-  add_foreign_key "tournaments", "players"
   add_foreign_key "tournaments", "users"
 end

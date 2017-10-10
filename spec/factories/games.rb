@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :game do
-    round nil
+    round
   end
 end

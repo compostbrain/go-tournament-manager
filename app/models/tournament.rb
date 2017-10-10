@@ -6,5 +6,5 @@ class Tournament < ApplicationRecord
   validates :location, presence: true
   validates :begin_date, presence: true
   validates :end_date, presence: true
-  validates :number_of_rounds, numericality: { only_integer: true }
+  attr_accessor :number_of_rounds
 end

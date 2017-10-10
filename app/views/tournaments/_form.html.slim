@@ -32,5 +32,5 @@
           = f.label :number_of_rounds
           = f.number_field :number_of_rounds
       .row.margin
-        .actions.col.s12
-          = f.submit 'Save', class: "btn waves-effect waves-light col s12"
+        button.btn.waves-effect.waves-light.col.s12 name="action" type="submit"
+          = f.submit 'Save'
