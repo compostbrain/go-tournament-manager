@@ -19,7 +19,7 @@ class PairingTool
       end
     end
     # 4. Pair each score group
-    Swissper.pair(@players, delta_key: :tournament_points)
+    Swissper.pair(@players, delta_key: :tournament_points, exclude_key: :unpairable_players)
   end
 
   private
@@ -57,10 +57,13 @@ class PairingTool
 
   def determine_tournament_points(player, round)
     # check to see the result of the round before
+    last_round = Round.where(tournament: @tournament, number: @round.number - 1)
+    if player.last_round.game.result(:win)
+      player.tournament_points += 1
+    elsif player.last_round.game.result(:tie) || player.last_round.game.result(:bye)
+      player.tournament_points += .5
     # if they won add one point
     # if they lost do nothing
     # if they had a bye add .5?
   end
 end
-
-PairingTool.new(...).execute
