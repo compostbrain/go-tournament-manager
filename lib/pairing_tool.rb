@@ -19,7 +19,11 @@ class PairingTool
       end
     end
     # 4. Pair each score group
-    Swissper.pair(@players, delta_key: :tournament_points, exclude_key: :unpairable_players)
+    Swissper.pair(
+                  @players,
+                  delta_key: :tournament_points,
+                  exclude_key: :previous_opponents
+                  )
   end
 
   private
@@ -60,10 +64,12 @@ class PairingTool
     last_round = Round.where(tournament: @tournament, number: @round.number - 1)
     if player.last_round.game.result(:win)
       player.tournament_points += 1
-    elsif player.last_round.game.result(:tie) || player.last_round.game.result(:bye)
+    elsif player.last_round.game.result(:tie)
       player.tournament_points += .5
     # if they won add one point
     # if they lost do nothing
-    # if they had a bye add .5?
+    # if a tie add .5
   end
+
+
 end
