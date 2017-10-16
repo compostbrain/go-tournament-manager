@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :result do
-    result "MyString"
+    game
+    result :black_won
   end
 end

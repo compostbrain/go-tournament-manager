@@ -1,6 +1,7 @@
 class Player < ApplicationRecord
   belongs_to :tournament
   has_many :games
+  has_many :results, through: :games
   attr_accessor :tournament_points, :previous_opponents
 
   def self.sorted_by_rating
