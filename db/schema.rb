@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20171016155956) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "result_id"
-    t.integer "player1_id", null: false
-    t.integer "player2_id", null: false
+    t.integer "white_player_id", null: false
+    t.integer "black_player_id", null: false
     t.integer "table_number"
     t.integer "stone_color"
     t.index ["result_id"], name: "index_games_on_result_id"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20171016155956) do
   end
 
   create_table "results", force: :cascade do |t|
-    t.integer "result", default: 0
+    t.integer "outcome", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "game_id"

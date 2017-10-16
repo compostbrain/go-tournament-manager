@@ -1,7 +1,6 @@
 class TournamentsController < ApplicationController
   before_action :set_tournament, only: %i[show edit update destroy]
 
-
   def index
     @tournaments = Tournament.order(created_at: :desc)
   end
@@ -41,7 +40,7 @@ class TournamentsController < ApplicationController
       :location,
       :begin_date,
       :end_date,
-      :number_of_rounds
+      :number_of_rounds,
     )
   end
 

@@ -13,7 +13,7 @@ describe "pairing tool" do
   describe '#determine_tournament_points' do
     it "sets the players delta to initial_tournament_points + 2 for winning a game in each of the two previous rounds" do
       tournament = FactoryGirl.create(:tournament)
-      player1.update(tournament_id: tournament.id)
+      tournament_registration = FactoryGirl.create(:tournament_registration, player_id: player1.id, tournament_id: tournament.id)
 
       round1 = FactoryGirl.create(:round, number: 1, tournament_id: tournament.id)
       round2 = FactoryGirl.create(:round, number: 2, tournament_id: tournament.id)
@@ -21,9 +21,9 @@ describe "pairing tool" do
       game1 = FactoryGirl.create(:game, player1: player1, player2: player2, round_id: round1.id)
       game2 = FactoryGirl.create(:game, player1: player1, player2: player2, round_id: round2.id)
 
-      game1_result = FactoryGirl.create(:result, game: game1)
+      game1_result = FactoryGirl.create(:result, game: game1, )
       game2_result = FactoryGirl.create(:result, game: game2)
-      
+
       binding.pry
     end
 
