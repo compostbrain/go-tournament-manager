@@ -1,5 +1,5 @@
 class Player < ApplicationRecord
-  belongs_to :tournament
+  has_many :tournaments, through: :tournament_registrations
   has_many :games
   has_many :results, through: :games
   attr_accessor :tournament_points, :previous_opponents

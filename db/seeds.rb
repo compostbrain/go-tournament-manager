@@ -37,7 +37,6 @@ end
     rating: RandomData.rating_from_rank(fake_rank),
     chapter_affiliation: RandomData.random_chapter,
     state: Faker::Address.state_abbr,
-    tournament: tournaments.first
 
   )
 end
