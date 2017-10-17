@@ -5,7 +5,7 @@ class PairingTool
   BAND_THREE = -6
   BAND_FOUR = -12
   BAND_FIVE = -30
-  # intial tournament points
+  # initial tournament points
   ABOVE_BAR_ITP = 6
   BAND_TWO_ITP = 4
   BAND_THREE_ITP = 3
@@ -25,11 +25,7 @@ class PairingTool
     # 2. Sort the field
     # 3. Create score groups
     @players.each do |player|
-      if @round.number = 1
-        player.tournament_points = initial_tournament_points(player)
-      else
         player.tournament_points = determine_tournament_points(player)
-      end
     end
     # 4. Pair each score group
     Swissper.pair(
@@ -73,7 +69,19 @@ class PairingTool
     end
   end
 
-  # def determine_previous_opponents(player)
-  #   previous_opponents == []
-  # end
+  def determine_previous_opponents(player)
+    player.previous_opponents = []
+    games = player.games.joins(
+      :tournament,
+    ).where(
+      tournaments: { id: tournament.id },
+    )
+    games.each do |game|
+      if game.white_player != player
+        player.previous_opponents << game.white_player
+      elsif game.black_player != player
+        player.previous_opponents << game.black_player
+      end
+    end
+  end
 end
