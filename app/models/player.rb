@@ -15,4 +15,8 @@ class Player < ApplicationRecord
   def games
     Game.where("white_player_id = ? OR black_player_id = ?", id, id)
   end
+
+  # def receive_bye
+  #
+  # end
 end

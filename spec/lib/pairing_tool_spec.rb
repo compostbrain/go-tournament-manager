@@ -4,7 +4,7 @@ require "pairing_tool"
 
 describe PairingTool do
   let :player1 { create(:player, rating: -30) }
-  let :player2 { create(:player, rating: 6) }
+  let :player2 { create(:player, rating: -30) }
   let :player3 { create(:player, rating: -5) }
   let :player4 { create(:player, rating: 4) }
 
@@ -71,7 +71,10 @@ describe PairingTool do
     end
 
   end
-  xit "removes players receiving byes" do
+  describe "#remove_bye_players" do
+    it "removes any players set to receive a bye" do
+
+    end
 
   end
 
@@ -83,5 +86,25 @@ describe PairingTool do
 
   end
 
-  xit " pairs each score group"
+  describe "#execute" do
+    xit "pairs players with the same delta" do
+      tournament = FactoryGirl.create(:tournament)
+      tournament_registration = FactoryGirl.create(:tournament_registration, player_id: player1.id, tournament_id: tournament.id, status: "final")
+      tournament_registration = FactoryGirl.create(:tournament_registration, player_id: player2.id, tournament_id: tournament.id, status: "final")
+
+      round1 = FactoryGirl.create(:round, number: 1, tournament_id: tournament.id)
+      round2 = FactoryGirl.create(:round, number: 2, tournament_id: tournament.id)
+      round3 = FactoryGirl.create(:round, number: 3, tournament_id: tournament.id)
+
+      game1 = FactoryGirl.create(:game, white_player: player1, black_player: player3, round_id: round1.id)
+      game2 = FactoryGirl.create(:game, white_player: player2, black_player: player4, round_id: round2.id)
+
+      game1_result = FactoryGirl.create(:result, game: game1, outcome: "white_won")
+      game2_result = FactoryGirl.create(:result, game: game2, outcome: "white_won")
+
+      pair_tool = PairingTool.new(players: [player1, player2, player3, player4], tournament: tournament, round: round3).excecute
+      expect(pair_tool).to include(player2, player3)
+
+    end
+  end
 end
