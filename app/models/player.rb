@@ -3,6 +3,7 @@ class Player < ApplicationRecord
   has_many :tournaments, through: :tournament_registrations
   has_many :round_statuses
   has_many :rounds, through: :round_statuses
+  accepts_nested_attributes_for :round_statuses
   attr_accessor :tournament_points, :previous_opponents
 
   def self.sorted_by_rating

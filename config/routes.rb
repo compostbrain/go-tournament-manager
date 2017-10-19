@@ -7,4 +7,13 @@ Rails.application.routes.draw do
     end
     resources :players, only: %i[index create update destroy]
   end
+  resources :rounds do
+    resources :players
+    resources :games
+  end
+  resources :players do
+    member do
+      get :round_status
+    end
+  end
 end

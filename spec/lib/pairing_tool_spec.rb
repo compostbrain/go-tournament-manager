@@ -72,8 +72,22 @@ describe PairingTool do
 
   end
   describe "#remove_bye_players" do
-    it "removes any players set to receive a bye" do
+    it "removes any players set to receive a bye due to enum status of bye" do
+      tournament = FactoryGirl.create(:tournament)
+      tournament_registration = FactoryGirl.create(:tournament_registration, player_id: player1.id, tournament_id: tournament.id)
 
+      round1 = FactoryGirl.create(:round, number: 1, tournament_id: tournament.id)
+
+      player1.update(round_statuses_attributes: [round: round1, status: "bye"])
+
+
+
+
+
+
+      pair_tool = PairingTool.new(players: [player1, player2, player3], tournament: tournament, round: round1)
+      active_players = pair_tool.send(:remove_bye_players, [player1, player2, player3])
+      expect(active_players).to_not include(player1)
     end
 
   end
