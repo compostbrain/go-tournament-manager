@@ -96,9 +96,7 @@ describe PairingTool do
 
   end
 
-  xit "creates score groups" do
 
-  end
 
   describe "#execute" do
     xit "pairs players with the same delta" do
