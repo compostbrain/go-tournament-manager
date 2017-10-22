@@ -8,6 +8,6 @@ FactoryGirl.define do
     rating "-7"
     chapter_affiliation "NOVA"
     state "MD"
-    tournament
+    
   end
 end

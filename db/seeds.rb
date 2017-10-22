@@ -17,11 +17,14 @@ require 'random_data'
     name: Faker::Hobbit.quote,
     location: Faker::Hobbit.location,
     begin_date: date,
-    end_date: date + 1,
-    number_of_rounds: 4
+    end_date: date + 1
   )
 end
 tournaments = Tournament.all
+
+4.times do |round|
+  Round.create!(number: round, tournament_id: tournaments.first.id)
+end
 
 100.times do |player|
   fake_rank = RandomData.random_rank
@@ -34,11 +37,10 @@ tournaments = Tournament.all
     rating: RandomData.rating_from_rank(fake_rank),
     chapter_affiliation: RandomData.random_chapter,
     state: Faker::Address.state_abbr,
-    tournament: tournaments.first
 
   )
 end
 
 puts "1 Tournament Director Created: jason@dragonslayer.com"
-puts "5 Tournaments created."
+puts "5 Tournaments with 4 rounds each created."
 puts "100 Players created."

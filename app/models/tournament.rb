@@ -1,10 +1,11 @@
 class Tournament < ApplicationRecord
   belongs_to :user
   has_many :rounds, dependent: :destroy
-  has_many :players, dependent: :destroy
+  has_many :tournament_registrations
+  has_many :players, through: :tournament_registrations
   validates :name, presence: true
   validates :location, presence: true
   validates :begin_date, presence: true
   validates :end_date, presence: true
-  validates :number_of_rounds, numericality: { only_integer: true }
+  attr_accessor :number_of_rounds
 end

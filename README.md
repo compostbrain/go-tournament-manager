@@ -15,6 +15,12 @@ Rails Version 5.1.2
 ## Features
 - Tournament set-up with option
 - Auto pairing for rounds
+- As an admin I want to create pairings for each round so I can assign players to games.
+Swissper gem for swiss pairing logic
+Game attributes: round_id, white_stones_player_id, black_stones_player_id, table_number, winner_id, loser_id
+Edge cases include odd number of players.
+Need a workflow for how each round will be paired
+
 - SMS texting of pairings
 -
 
@@ -22,7 +28,7 @@ Rails Version 5.1.2
 - Use Materialize-sass
 
 # TODOS
--  X add a rake task to run webpack for tests
+-  remove stone_color attribute from players
 
 
 # Database set-up

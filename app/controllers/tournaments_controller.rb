@@ -12,8 +12,19 @@ class TournamentsController < ApplicationController
   def create
     @tournament = Tournament.new(tournament_params)
     @tournament.user_id = current_user.id
+
     if @tournament.save
-      redirect_to @tournament, notice: "New tournament created"
+      @rounds = []
+      params[:tournament][:number_of_rounds].to_i.times do |number|
+        @rounds << Round.new(number: number, tournament: @tournament)
+      end
+
+      if @rounds.each(&:save)
+        redirect_to @tournament, notice: "New tournament created"
+      else
+        render :new, notice: "There was an error."
+      end
+
     else
       render :new, notice: "There was an error."
     end
