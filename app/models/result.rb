@@ -21,6 +21,16 @@ class Result < ApplicationRecord
     end
   end
 
+  def loser
+    if outcome == "not_one" || outcome == "draw"
+      nil
+    elsif outcome == "white_won" || outcome == "black_forfeit"
+      black_player
+    else
+      white_player
+    end
+  end
+
   def draw
     if outcome == "draw"
       true
