@@ -20,7 +20,7 @@ class TournamentsController < ApplicationController
       end
 
       if @rounds.each(&:save)
-        redirect_to @tournament, notice: "New tournament created"
+        redirect_to root_path, notice: "New tournament created"
       else
         render :new, notice: "There was an error."
       end
@@ -30,7 +30,11 @@ class TournamentsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @tournament = Tournament.find(params[:id])
+    @round = @tournament.rounds.where(number: 1)
+    @players = Player.all
+  end
 
   private
 

@@ -15,7 +15,16 @@ $(document).on 'ready turbolinks:load', ->
     }
   );
   $('.collapsible').collapsible();
-  $('.dropdown-button').dropdown()
+  $('.dropdown-button').dropdown({
+    inDuration: 300,
+    outDuration: 225,
+    constrainWidth: false, # Does not change width of dropdown to that of the activator
+    hover: true, # Activate on hover
+    gutter: 0, # Spacing from edge
+    belowOrigin: false, # Displays dropdown below the button
+    alignment: 'left', # Displays dropdown with edge aligned to the left of button
+    stopPropagation: false # Stops event propagation
+  });
   $('.modal').modal();
   $('select').material_select();
   Waves.displayEffect()
@@ -28,4 +37,4 @@ $(document).on 'ready turbolinks:load', ->
     $(this).addClass 'hide'
     $(this).parents('div.input-field').children('label').attr(
       'data-hint', $value
-    )
+    );

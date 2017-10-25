@@ -1,17 +1,52 @@
 <div class="container">
 
-  <h1>Players</h1>
-  <table class="highlight">
-    <thead>
-      <tr>
-        <th>Rank</th>
-        <th>Name</th>
-        <th>AGA #</th>
-      </tr>
-    </thead>
+  <div class="row">
+    <!-- Dropdown Trigger -->
+    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Select Round</a>
 
-    <tbody>
-      <%= render @players %>
-    </tbody>
-  </table>
+<!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+      <% @rounds.each do |round| %>
+        <%= link_to "Round #{round.number}", round_players_url(round) %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="row">
+    <table class="col s3 bordered">
+      <h1>Players</h1>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Rank</th>
+          <th>Club</th>
+        </tr>
+      </thead>
+      <tbody id="active-players">
+        <%= render @players %>
+      </tbody>
+
+    </table>
+    <div class="col s3">
+      <h1>Pair</h1>
+
+    </div>
+    <table class="col s6 bordered">
+      <h1>Games</h1>
+      <thead>
+        <tr>
+          <th>Table</th>
+          <th>White</th>
+          <th>Black</th>
+          <th>Handicap</th>
+        </tr>
+      </thead>
+      <tbody id="active-players">
+        <% @games.each do |game| %>
+          <%= render partial: "games/game", locals: { game: game } %>
+        <% end %>
+      </tbody>
+
+    </table>
+
+  </div>
 </div>

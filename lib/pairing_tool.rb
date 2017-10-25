@@ -12,13 +12,12 @@ class PairingTool
   BAND_FOUR_ITP = 2
   BAND_FIVE_ITP = 0
 
+  attr_reader :players, :tournament, :round
   def initialize(players:, tournament:, round:)
     @players = players
     @tournament = tournament
     @round = round
   end
-
-  attr_reader :players, :tournament, :round
 
   def execute
     # 1. Remove players receiving byes
