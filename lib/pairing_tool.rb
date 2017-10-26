@@ -20,24 +20,18 @@ class PairingTool
   end
 
   def execute
-    # 1. Remove players receiving byes
-    active_players = remove_bye_players(players, round)
-    # 2. Sort the field
-    sorted_players = active_players.sort_by(&:rating)
+    # active_players = remove_bye_players(players, round)
 
-    # TODO: prevent players from receiving byes
-    # if they already had a bye from Swissper
+    sorted_players = players.sort_by(&:rating)
+
     sorted_players.each do |player|
       determine_tournament_points(player)
       determine_previous_opponents(player)
     end
-    # 4. Pair each score group
-    # TODO first round should be paired by split and shift
 
     Swissper.pair(
       sorted_players, delta_key: :tournament_points,
                       exclude_key: :previous_opponents
-
     )
   end
 

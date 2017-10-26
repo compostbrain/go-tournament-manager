@@ -16,5 +16,6 @@ module GoTournamentManager
   class Application < Rails::Application
     config.load_defaults 5.1
     config.generators.system_tests = nil
+    config.autoload_paths += Dir["#{Rails.root}/lib"]
   end
 end

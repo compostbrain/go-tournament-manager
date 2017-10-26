@@ -8,9 +8,7 @@ class PlayersController < ApplicationController
   end
 
   def pair
-    # players = Player.where(id: params[:tournament][:player_ids])
-    # TODO change players assignment to active players with
-    # tournament_registration status if final and round_statuse of active
+    @tournament = Tournament.last
     @round = Round.find(params[:round_id])
     @players = Player.all
     pairings = PairingTool.new(
@@ -19,27 +17,30 @@ class PlayersController < ApplicationController
     @games = []
     pairings.each_with_index do |pairing, i|
       @games << if pairing[0].rating > pairing[1].rating
-                  Game.new(
+                  Game.create!(
                     round_id: @round.id,
-                    white_player_id: pairing[0],
-                    black_player_id: pariing[1],
+                    white_player_id: pairing[0].id,
+                    black_player_id: pairing[1].id,
                     table_number: i,
                   )
                 else
-                  Game.new(
+                  Game.create!(
                     round_id: @round.id,
-                    white_player_id: pairing[1],
-                    black_player_id: pariing[0],
+                    white_player_id: pairing[1].id,
+                    black_player_id: pairing[0].id,
                     table_number: i,
                   )
 
                 end
     end
-    if @games.each(&:save)
-      redirect_to round_players,
-       notice: "Game Pairings Created for Round  #{@round.number}"
-    else
-      render :index, notice: "There was an error"
-    end
+    redirect_to round_players_url,
+       notice: "Game Pairings Created for Round  #{@round.number + 1}"
+
+    # if @games.each(&:save)
+    #   redirect_to round_players_url,
+    #    notice: "Game Pairings Created for Round  #{@round.number + 1}"
+    # else
+    #   render :index, notice: "There was an error"
+    # end
   end
 end

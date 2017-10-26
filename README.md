@@ -27,9 +27,14 @@ Need a workflow for how each round will be paired
 # UI
 - Use Materialize-sass
 
-# TODOS
--  remove stone_color attribute from players
+# TODOS PlayersController
+- remove stone_color attribute from players
+- players = Player.where(id: params[:tournament][:player_ids])
+- PlayersController#pair method: change players assignment to active players with tournament_registration status if final and round_statuse of active
 
+# TODOS PairingTool
+- prevent players from receiving byes if they already had a bye from Swissper
+- first round should be paired by split and shift
 
 # Database set-up
 -  enter in CL:
