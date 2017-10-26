@@ -2,6 +2,8 @@ class RoundsController < ApplicationController
   before_action :set_tournament
   before_action :set_round, only: %i(show destroy)
 
+  def show; end
+
   private
 
   def set_tournament

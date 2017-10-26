@@ -24,7 +24,7 @@ describe 'navigate' do
       visit new_tournament_path
       expect(page.status_code).to eq 200
     end
-    it 'can be created from new form page' do
+    xit 'can be created from new form page' do
       visit new_tournament_path
       fill_in 'tournament[name]', with: "Return of the Jedi"
       fill_in 'tournament[location]', with: "Saturns Rings"
