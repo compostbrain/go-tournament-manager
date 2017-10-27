@@ -33,6 +33,7 @@ class TournamentsController < ApplicationController
 
   def show
     @tournament = Tournament.find(params[:id])
+    @rounds = @tournament.rounds
     @round = @tournament.rounds.where(number: 1)
     @players = Player.all
   end

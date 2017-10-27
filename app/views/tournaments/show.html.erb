@@ -1,14 +1,13 @@
 <div class="container">
   <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s1">
-          <input id="icon_prefix" type="number" class="validate" default="1">
-          <label for="icon_prefix">Round #</label>
-        </div>
-      </div>
-    </form>
+    <div class="card-panel amber lighten-3 z-depth-4">
+      <h1 class="center-align"><%= @tournament.name %> Tournament</h1>
+      <h6 class="right-align">Location: <%= @tournament.location %></h6>
+      <h6 class="right-align">Start Date: <%= @tournament.begin_date %></h6>
+    </div>
+
   </div>
+<<<<<<< HEAD
   <div class="row col s12">
     <table class="col s4 bordered">
       <thead>
@@ -23,8 +22,27 @@
           <%= render partial: "players/player", locals: { player: player } %>
         <% end %>
       </tbody>
+=======
+  <div class="row">
+    <div class="col s4">
+        <%= link_to "Player Registration", tournament_players_path(@tournament), class: "btn waves-effect waves-light col s12" %>
+    </div>
+    <div class="col s4">
+      <a class='dropdown-button btn col s12' href='#' data-activates='dropdown1'>Go to Round</a>
+      <ul id='dropdown1' class='dropdown-content'>
+        <% @rounds.each do |round| %>
+        <li>
+            <%= link_to "Round #{round.number + 1}", round_players_url(round), class: "col s12" %>
+        </li>
+>>>>>>> tournament#show page scaffolded
 
-    </table>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col s4">
+      <%= link_to "Standings", "#", class: "btn waves-effect waves-light col s12" %>
 
+    </div>
   </div>
+
 </div>
