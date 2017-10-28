@@ -1,18 +1,20 @@
 class PlayersController < ApplicationController
-  layout :resolve_layout
 
   def index
-
-    @tournament = Tournament.find(params[:tournament_id])
+    @round = if params[:round_id].present?
+                Round.find(params[:round_id])
+              else
+                nil
+              end
+    @tournament = if params[:tournament_id].present?
+                   Tournament.find(params[:tournament_id])
+                 else
+                   Tournament.find(@round.tournament_id)
+                 end
     @players = Player.order(rating: :desc)
     @rounds = @tournament.rounds
-    @round = @rounds.first
+
     @games = @round.games
-    if params[:tournament_id].present?
-      render "player_manager/registration"
-    else
-      render :index
-    end
   end
 
   def pair
