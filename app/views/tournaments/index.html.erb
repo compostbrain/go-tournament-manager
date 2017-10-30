@@ -1,19 +1,21 @@
 <div class="container">
 
   <h1>Tournaments</h1>
-  <%= form_for @import, url: import_tournaments_path, multipart: true do |f|  %>
-    <% if @import.errors.any? %>
-    <div class="alert alert-error">
-      <% @import.errors.full_messages.each do |msg| %>
-        <div class="">
-          <%= msg %>
+    <div class="card">
+      <%= form_for @import, url: import_tournaments_path, multipart: true do |f|  %>
+        <% if @import.errors.any? %>
+        <div class="alert alert-error">
+          <% @import.errors.full_messages.each do |msg| %>
+            <div class="">
+              <%= msg %>
+            </div>
+            <% end %>
         </div>
         <% end %>
+        <%= f.file_field :file %>
+        <%= f.submit "Upload Tournament from CSV", class: "btn btn lrg col s12" %>
+      <% end %>
     </div>
-    <% end %>
-    <%= f.file_field :file %>
-    <%= f.submit "Upload Tournament from CSV" %>
-  <% end %>
   <table class="highlight">
     <thead>
       <tr>

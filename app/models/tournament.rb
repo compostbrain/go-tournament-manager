@@ -1,9 +1,10 @@
 class Tournament < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, required: false
   has_many :rounds, dependent: :destroy
   has_many :tournament_registrations
   has_many :players, through: :tournament_registrations
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: :begin_date,
+                                                 message: "should happen once per year" }
   validates :location, presence: true
   validates :begin_date, presence: true
   validates :end_date, presence: true
