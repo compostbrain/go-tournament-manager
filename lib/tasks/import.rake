@@ -1,17 +1,27 @@
 require "wild_apricot_import"
 namespace :import do
   desc "create a new tournament and import players from WildApricot"
-  task players: :environment do
+  task tournament: :environment do
     filename = File.join Rails.root, "players.csv"
-    counter = 0
+    tournament_counter = 0
+    player_counter = 0
     import = WildApricotImport.new
     CSV.foreach(filename, headers: true) do |row|
-      if counter == 1
+      if tournament_counter.zero?
         import.new_tournament(row)
+        if @tournament.save
+          tournament_counter += 1
+        else
+          puts
+          "#{tournament.name} - #{tournament.errors.full_messages.join(',')}"
+        end
       end
       import.new_player(row)
-      counter += 1
+      if @player.save
+        player_counter += 1
+      else
+        puts "#{player.email} - #{player.errors.full_messages.join(',')}"
+      end
     end
-    puts "Imported #{counter} players"
   end
 end

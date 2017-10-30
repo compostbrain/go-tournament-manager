@@ -1,18 +1,20 @@
 class WildApricotImport
+  attr_accessor :tournament, :player
   def new_tournament(row)
-    Tournament.create(
+    @tournament = Tournament.new(
       name: row["Event title"],
-      location: row["location"],
+      location: row["Event location"],
       begin_date: row["Start date"],
       end_date: row["End date"],
+      number_of_rounds: 4,
     )
   end
 
   def new_player(row)
-    Player.create(
+    @player = Player.where(email: row["Email"]).first_or_initalize
+    @player.assign_attributes(
       first_name: row["First name"],
       last_name: row["Last name"],
-      email: row["Email"],
       rank: row["Tournament Entry Rank"] || "",
       aga_number: row["AGA ID"] || "",
       membership_exp_date: Date.today,
