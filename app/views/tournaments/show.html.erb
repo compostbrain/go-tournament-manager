@@ -7,22 +7,6 @@
     </div>
 
   </div>
-<<<<<<< HEAD
-  <div class="row col s12">
-    <table class="col s4 bordered">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Rank</th>
-          <th>Club</th>
-        </tr>
-      </thead>
-      <tbody id="active-players">
-        <% @players.each do |player| %>
-          <%= render partial: "players/player", locals: { player: player } %>
-        <% end %>
-      </tbody>
-=======
   <div class="row">
     <div class="col s4">
         <%= link_to "Player Registration", tournament_players_path(@tournament), class: "btn waves-effect waves-light col s12" %>
@@ -34,7 +18,6 @@
         <li>
             <%= link_to "Round #{round.number + 1}", round_players_url(round), class: "col s12" %>
         </li>
->>>>>>> tournament#show page scaffolded
 
         <% end %>
       </ul>

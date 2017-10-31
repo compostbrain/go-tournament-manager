@@ -22,7 +22,6 @@ class Player < ApplicationRecord
   has_many :rounds, through: :round_statuses
   accepts_nested_attributes_for :round_statuses
   attr_accessor :tournament_points, :previous_opponents
-<<<<<<< HEAD
   validates_uniqueness_of :email
   validates_uniqueness_of :aga_number
   validates :first_name, presence: true
@@ -30,12 +29,6 @@ class Player < ApplicationRecord
   validates :aga_number, presence: true
   validates :email, presence: true
   validates :rank, presence: true
-=======
-  validates :first_name , presence: true
-  validates :last_name, presence: true
-  validates :rank, presence: true
-  validates :aga_number, presence: true
->>>>>>> tournament#show page scaffolded
   validates :rating, presence: true
 
   def self.sorted_by_rating
