@@ -7,6 +7,7 @@ class TournamentRegistrationsController < ApplicationController
       @tournament_registration = TournamentRegistration.new(
         player_id: @player.id,
         tournament_id: @tournament.id,
+        status: params[:tournament_registration_status],
       )
       if @tournament_registration.save
         redirect_to tournaments_path(id: @tournament.id),

@@ -32,5 +32,10 @@
           = f.label :state
           = f.text_field :state
       .row.margin
-        /button.btn.waves-effect.waves-light.col.s12 name="action" type="submit"
-        = f.submit 'Save'
+        .input-field.col.s4
+          h6 Registration Status:
+          = select_tag("tournament_registration_status", options_for_select(preliminary: 1, final: 2 ))
+
+      .row.margin
+        button.btn.waves-effect.waves-light.col.s12 name="action" type="submit"
+          = f.submit 'Save'
