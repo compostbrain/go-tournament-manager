@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="card-panel amber lighten-3 z-depth-4">
+    <div class="card-panel grey lighten-1 z-depth-4">
       <h3 class="center-align truncate"><%= @tournament.name %> </h3>
       <h4 class="center-align">Tournament</h4>
       <h6 class="right-align">Location: <%= @tournament.location %></h6>
@@ -9,10 +9,8 @@
 
   </div>
   <div class="row">
-    <div class="col s4">
-        <%= link_to "Player Registration", tournament_players_path(@tournament), class: "btn waves-effect waves-light col s12" %>
-    </div>
-    <div class="col s4">
+
+    <div class="col s6">
       <a class='dropdown-button btn col s12' href='#' data-activates='dropdown1'>Go to Round</a>
       <ul id='dropdown1' class='dropdown-content'>
         <% @rounds.each do |round| %>
@@ -23,7 +21,7 @@
         <% end %>
       </ul>
     </div>
-    <div class="col s4">
+    <div class="col s6">
       <%= link_to "Standings", "#", class: "btn waves-effect waves-light col s12" %>
 
     </div>
@@ -31,10 +29,13 @@
 
   <div class="row">
     <div class="col s6">
-      <%= render "players/form" %>
+      <div class="card-panel grey lighten-4 z-depth-4">
+        <h4>Player Registration</h4>
+        <%= render "players/form" %>
+      </div>
     </div>
     <div class="col s6">
-      <div class="card-panel amber lighten-5 z-depth-4">
+      <div class="card-panel grey lighten-4 z-depth-4">
 
         <h5 class="left-align"> <%= @tournament.players.count %> Registered Players</h5>
 

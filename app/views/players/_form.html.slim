@@ -1,10 +1,9 @@
-#players-new.container.row
-  .col.s12.z-depth-4.card-panel
+#players-new
     .row
-      .input-field.col.s12.center
-        p.center.player-new-form-text
-        h2
-          span New Player:
+      .col.s12.center
+        / p.center.player-new-form-text
+        / h2
+        /   span New Player:
     /= form_for :player, url: { controller: "tournament_registrations", action: "create", params: { tournament_id: @tournament.id } } do |f|
     = form_for :player, url: tournament_registration_path(tournament_id: @tournament.id) do |f|
       .row.margin
@@ -27,7 +26,7 @@
           = f.label :rating
           = f.text_field :rating
         .input-field.col.s3
-          = f.label :chapter_affiliation
+          = f.label :club
           = f.text_field :chapter_affiliation
         .input-field.col.s3
           = f.label :state
