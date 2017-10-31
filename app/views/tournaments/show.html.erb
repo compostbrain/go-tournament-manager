@@ -15,7 +15,7 @@
       <ul id='dropdown1' class='dropdown-content'>
         <% @rounds.each do |round| %>
         <li>
-            <%= link_to "Round #{round.number + 1}", round_players_url(round), class: "col s12" %>
+            <%= link_to "Round #{round.number + 1}", round_players_url(round) %>
         </li>
 
         <% end %>
@@ -46,6 +46,8 @@
               <th>Name</th>
               <th>Rank</th>
               <th>Club</th>
+              <th>Reg. Status</th>
+              <th>Options</th>
             </tr>
           </thead>
           <tbody id="active-players">
