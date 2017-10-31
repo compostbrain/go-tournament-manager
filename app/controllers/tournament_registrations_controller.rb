@@ -2,14 +2,22 @@ class TournamentRegistrationsController < ApplicationController
   def create
     @tournament = Tournament.find(params[:tournament_id])
     @player = Player.new(player_params)
-    @tournament_registration = TournamentRegistration.new(
-      player_id: @player.id,
-      tournament_id: @tournament.id,
-    )
-    if @player.save && @tournament_registration.save
-      redirect_to tournament_path, notice: "Registered player"
+
+    if @player.save
+      @tournament_registration = TournamentRegistration.new(
+        player_id: @player.id,
+        tournament_id: @tournament.id,
+      )
+      if @tournament_registration.save
+        redirect_to tournaments_path(id: @tournament.id),
+        notice: "Registered player"
+      else
+        redirect_to tournament_path(id: @tournament.id),
+        notice: "Registration failed"
+      end
     else
-      redirect_to tournament_path, notice: "Registration failed"
+      redirect_to tournament_path(id: @tournament.id),
+      notice: "Registration failed"
     end
   end
 
