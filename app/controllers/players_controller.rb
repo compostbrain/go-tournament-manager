@@ -1,20 +1,40 @@
 class PlayersController < ApplicationController
-
   def index
     @round = if params[:round_id].present?
-                Round.find(params[:round_id])
-              else
-                nil
-              end
+               Round.find(params[:round_id])
+             end
     @tournament = if params[:tournament_id].present?
-                   Tournament.find(params[:tournament_id])
-                 else
-                   Tournament.find(@round.tournament_id)
-                 end
+                    Tournament.find(params[:tournament_id])
+                  else
+                    Tournament.find(@round.tournament_id)
+                  end
     @players = Player.order(rating: :desc)
     @rounds = @tournament.rounds
 
     @games = @round.games
+  end
+
+  def new
+    @player = Player.new
+  end
+
+  def create
+    @player = Player.new(player_params)
+    if @player.save
+      redirect_to @player, notice: "Added player"
+    else
+      render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @player.update(player_params)
+      redirect_to @player, notice: "Updated player"
+    else
+      render :edit
+    end
   end
 
   def pair
@@ -52,5 +72,22 @@ class PlayersController < ApplicationController
     # else
     #   render :index, notice: "There was an error"
     # end
+  end
+
+  private
+
+  def player_params
+    params.require(:player).permit(
+      :first_name,
+      :last_name,
+      :rank,
+      :aga_number,
+      :membership_exp_date,
+      :rating,
+      :chapter_affiliation,
+      :state,
+      tournament_registrations_attributes: %i[id status tournament_id],
+      round_statuses_attributes: %i[id status round_id],
+    )
   end
 end

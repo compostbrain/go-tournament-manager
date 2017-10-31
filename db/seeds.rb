@@ -37,10 +37,16 @@ end
     rating: RandomData.rating_from_rank(fake_rank),
     chapter_affiliation: RandomData.random_chapter,
     state: Faker::Address.state_abbr,
-
   )
+end
+players = Player.all
+
+50.times do |i|
+  player = Player.find(i + 1)
+  TournamentRegistration.create!(player_id: player.id, tournament_id: Tournament.first.id)
 end
 
 puts "1 Tournament Director Created: jason@dragonslayer.com"
 puts "5 Tournaments with 4 rounds each created."
 puts "100 Players created."
+puts "50 tournament registrations created."

@@ -5,7 +5,7 @@ class CreatePlayers < ActiveRecord::Migration[5.1]
       t.string :last_name, null: false
       t.string :rank, null: false
       t.string :aga_number, null: false
-      t.date :membership_exp_date, null: false
+      t.date :membership_exp_date
       t.decimal :rating, null: false
       t.string :chapter_affiliation, null: false
       t.string :state, null: false

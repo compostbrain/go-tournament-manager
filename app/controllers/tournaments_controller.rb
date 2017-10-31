@@ -33,8 +33,12 @@ class TournamentsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:id])
     @rounds = @tournament.rounds
-    @round = @tournament.rounds.where(number: 1)
-    @players = Player.all
+    all_players = Player.all
+    @players = Player.joins(
+      :tournament_registrations,
+    ).where(
+      tournament_registrations: { tournament_id: @tournament.id },
+    ).where(id: all_players.map(&:id))
   end
 
   private

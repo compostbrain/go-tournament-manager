@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="card-panel amber lighten-3 z-depth-4">
-      <h1 class="center-align"><%= @tournament.name %> Tournament</h1>
+      <h3 class="center-align truncate"><%= @tournament.name %> </h3>
+      <h4 class="center-align">Tournament</h4>
       <h6 class="right-align">Location: <%= @tournament.location %></h6>
       <h6 class="right-align">Start Date: <%= @tournament.begin_date %></h6>
     </div>
@@ -25,6 +26,33 @@
     <div class="col s4">
       <%= link_to "Standings", "#", class: "btn waves-effect waves-light col s12" %>
 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s6">
+      <%= render "players/form" %>
+    </div>
+    <div class="col s6">
+      <div class="card-panel amber lighten-5 z-depth-4">
+
+        <h5 class="left-align"> <%= @tournament.players.count %> Registered Players</h5>
+
+        <table class="highlight bordered">
+
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Rank</th>
+              <th>Club</th>
+            </tr>
+          </thead>
+          <tbody id="active-players">
+            <%= render @players %>
+          </tbody>
+
+        </table>
+      </div>
     </div>
   </div>
 
