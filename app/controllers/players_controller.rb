@@ -1,14 +1,13 @@
 class PlayersController < ApplicationController
   def index
-    @round = if params[:round_id].present?
-               Round.find(params[:round_id])
-             end
+    @round =  Round.find(params[:round_id])
+
     @tournament = if params[:tournament_id].present?
                     Tournament.find(params[:tournament_id])
                   else
                     Tournament.find(@round.tournament_id)
                   end
-    @players = Player.order(rating: :desc)
+    @active_players = Player.where(round_status(@round, player))
     @rounds = @tournament.rounds
 
     @games = @round.games
