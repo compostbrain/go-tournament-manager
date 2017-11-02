@@ -15,10 +15,11 @@ class TournamentRegistrationsController < ApplicationController
       if @tournament_registration.save
         # create player round_statuses
         @tournament.rounds.each do |r|
+          rs = r.number.to_s
           @round_statuses << RoundStatus.new(
             player_id: @player.id,
             round_id: r.id,
-            status: if params[:round_statuses].include?(r.number)
+            status: if params[:round_statuses].include?(rs)
                       1 # enum status: { active: 1, bye: 2 }
                     else
                       2
