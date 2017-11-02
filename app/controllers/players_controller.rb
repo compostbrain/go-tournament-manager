@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   def index
-    @round =  Round.find(params[:round_id])
+    @round = Round.find(params[:round_id])
 
     @tournament = if params[:tournament_id].present?
                     Tournament.find(params[:tournament_id])

@@ -19,8 +19,6 @@ class TournamentRegistrationsController < ApplicationController
     end
   end
 
-
-
   private
 
   def player_params
