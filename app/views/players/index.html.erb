@@ -8,7 +8,7 @@
     <ul id='dropdown1' class='dropdown-content'>
       <% @rounds.each do |round| %>
       <li>
-          <%= link_to "Round #{round.number + 1}", round_players_url(round) %>
+          <%= link_to "Round #{ round.number }", round_players_url(round) %>
       </li>
 
       <% end %>

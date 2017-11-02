@@ -6,8 +6,8 @@
         /   span New Player:
     /= form_for :player, url: { controller: "tournament_registrations", action: "create", params: { tournament_id: @tournament.id } } do |f|
     = form_for :player, url: tournament_registration_path(tournament_id: @tournament.id) do |f|
-      .row.margin
-        = render "shared/alerts", object: @tournament
+      / .row.margin
+      /   = render "shared/alerts", object: @tournament
       .row.margin
         .input-field.col.s4
           = f.label :first_name, autofocus: true
@@ -33,7 +33,7 @@
           = f.text_field :state
       .row.margin
         .input-field.col.s4
-          h6 Tournament Registration Status:
+          h6 Status:
           = select_tag("tournament_registration_status", options_for_select(preliminary: "preliminary", final: "final" ))
 
 
@@ -42,8 +42,8 @@
           h6 Active in:
           - @tournament.rounds.each do |r|
             .col.s3
-              = check_box_tag "round_status[#{ r.id }]", "active", true
-              = label_tag "round_status[#{ r.id }]", "Round #{ r.number + 1 }"
+              = check_box_tag "round_statuses[#{ r.number }]", "active", true
+              = label_tag "round_statuses[#{ r.number }]", "Round #{ r.number }"
 
       .row.margin
         button.btn.waves-effect.waves-light.col.s12 name="action" type="submit"

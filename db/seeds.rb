@@ -23,7 +23,7 @@ end
 tournaments = Tournament.all
 
 4.times do |round|
-  Round.create!(number: round, tournament_id: tournaments.first.id)
+  Round.create!(number: round +1 , tournament_id: tournaments.first.id)
 end
 
 100.times do |player|

@@ -5,11 +5,9 @@
   <td><%= player.chapter_affiliation %></td>
   <td><%= registration_status(@tournament, player) %></td>
   <td>
-    <%= link_to update_tournament_registration_path(
-      @tournament, player) do %>
-      <i class="material-icons">edit</i>
-    <% end %>
-  </td>
-
+    <%= link_to update_tournament_registration_path( @tournament, player) do %>
+    <i class="material-icons">edit</i>
+  <% end %>
+</td>
 
 </tr>
