@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def list_of_tournament_names
     tournaments = Tournament.all
     tournament_names = []
@@ -10,7 +9,9 @@ module ApplicationHelper
   end
 
   def registration_status(tournament, player)
-    TournamentRegistration.find_by(tournament_id: tournament.id, player_id: player.id).status
+    TournamentRegistration.find_by(
+      tournament_id: tournament.id, player_id: player.id,
+    ).status
   end
 
   def round_participation_status(round, player)
@@ -34,5 +35,4 @@ module ApplicationHelper
   #     round_statuses: { round_id: round.id },
   #   ).where(id: )
   # end
-
 end
