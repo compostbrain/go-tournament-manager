@@ -32,6 +32,7 @@ class TournamentsController < ApplicationController
   end
 
   def show
+    @player = Player.find_by(id: params[:player_id]) || Player.new
     @tournament = Tournament.find(params[:id])
 
     all_players = Player.all

@@ -1,0 +1,39 @@
+diff --git a/app/controllers/tournaments_controller.rb b/app/controllers/tournaments_controller.rb
+index bd052e5..ac48e9b 100644
+--- a/app/controllers/tournaments_controller.rb
++++ b/app/controllers/tournaments_controller.rb
+@@ -31,6 +31,7 @@ class TournamentsController < ApplicationController
+   end
+ 
+   def show
++    @player = Player.find_by(id: params[:player_id]) || Player.new
+     @tournament = Tournament.find(params[:id])
+ 
+     all_players = Player.all
+diff --git a/app/views/players/_form.html.slim b/app/views/players/_form.html.slim
+index 3e540ec..64669a9 100644
+--- a/app/views/players/_form.html.slim
++++ b/app/views/players/_form.html.slim
+@@ -4,8 +4,7 @@
+         / p.center.player-new-form-text
+         / h2
+         /   span New Player:
+-    /= form_for :player, url: { controller: "tournament_registrations", action: "create", params: { tournament_id: @tournament.id } } do |f|
+-    = form_for :player, url: tournament_registration_path(tournament_id: @tournament.id) do |f|
++    = form_for @player, url: tournament_registration_path(tournament_id: @tournament.id) do |f|
+       / .row.margin
+       /   = render "shared/alerts", object: @tournament
+       .row.margin
+diff --git a/app/views/players/_player.html.erb b/app/views/players/_player.html.erb
+index dae8fc3..1c8b3cc 100644
+--- a/app/views/players/_player.html.erb
++++ b/app/views/players/_player.html.erb
+@@ -5,7 +5,7 @@
+   <td><%= player.chapter_affiliation %></td>
+   <td><%= registration_status(@tournament, player) %></td>
+   <td>
+-    <%= link_to update_tournament_registration_path( @tournament, player) do %>
++    <%= link_to tournament_path(@tournament, player_id: player.id) do %>
+     <i class="material-icons">edit</i>
+   <% end %>
+ </td>
