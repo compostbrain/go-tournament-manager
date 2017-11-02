@@ -38,11 +38,10 @@ end
     rating: RandomData.rating_from_rank(fake_rank),
     chapter_affiliation: RandomData.random_chapter,
     state: Faker::Address.state_abbr,
-<<<<<<< HEAD
     email: Faker::Internet.email(first_name),
   )
 end
-players = Player.all
+
 50.times do |i|
   player = Player.find(i + 1)
   TournamentRegistration.create!(player_id: player.id, tournament_id: Tournament.first.id, status: "final")
@@ -87,23 +86,9 @@ end
 
 
 
-=======
-  )
-end
-players = Player.all
-
-50.times do |i|
-  player = Player.find(i + 1)
-  TournamentRegistration.create!(player_id: player.id, tournament_id: Tournament.first.id)
-end
->>>>>>> implemented tournament registration controller
 
 puts "1 Tournament Director Created: jason@dragonslayer.com"
 puts "5 Tournaments with 4 rounds each created."
 puts "100 Players created."
-<<<<<<< HEAD
 puts "50 Tournament Registrations created with registered players active in all rounds"
 puts "25 games created for first round"
-=======
-puts "50 tournament registrations created."
->>>>>>> implemented tournament registration controller

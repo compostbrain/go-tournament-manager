@@ -17,7 +17,7 @@ class TournamentsController < ApplicationController
     if @tournament.save
       @rounds = []
       params[:tournament][:number_of_rounds].to_i.times do |number|
-        @rounds << Round.new(number: number, tournament: @tournament)
+        @rounds << Round.new(number: number + 1, tournament: @tournament)
       end
 
       if @rounds.each(&:save)

@@ -50,20 +50,20 @@ class PlayersController < ApplicationController
                     round_id: @round.id,
                     white_player_id: pairing[0].id,
                     black_player_id: pairing[1].id,
-                    table_number: i,
+                    table_number: i + 1,
                   )
                 else
                   Game.create!(
                     round_id: @round.id,
                     white_player_id: pairing[1].id,
                     black_player_id: pairing[0].id,
-                    table_number: i,
+                    table_number: i + 1,
                   )
 
                 end
     end
     redirect_to round_players_url,
-       notice: "Game Pairings Created for Round  #{@round.number + 1}"
+       notice: "Game Pairings Created for Round  #{@round.number}"
 
     # if @games.each(&:save)
     #   redirect_to round_players_url,
