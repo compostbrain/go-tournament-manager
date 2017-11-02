@@ -20,7 +20,7 @@
       </thead>
       <tbody id="active-players">
         <% @players.each do |player| %>
-          <%= render partial "players/player", locals: { player: player } %>
+          <%= render partial: "players/player", locals: { player: player } %>
         <% end %>
       </tbody>
 

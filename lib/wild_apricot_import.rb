@@ -1,7 +1,7 @@
 class WildApricotImport
   attr_accessor :tournament, :player
   def new_tournament(row)
-    tournament = Tournament.new(
+    Tournament.new(
       name: row["Event title"],
       location: row["Event location"],
       begin_date: row["Start date"],
@@ -18,7 +18,7 @@ class WildApricotImport
       rank: row["Tournament Entry Rank"] || "",
       aga_number: row["AGA ID"] || "",
       membership_exp_date: Date.today,
-      rating: 0,
+      rating: 0,.first_or_initialize
       chapter_affiliation: "UNKNOWN",
       state: "UNKNOWN",
       phone: row["Phone"],
