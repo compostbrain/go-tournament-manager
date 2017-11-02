@@ -13,7 +13,7 @@
     <div class="col s6">
       <a class='dropdown-button btn col s12' href='#' data-activates='dropdown1'>Go to Round</a>
       <ul id='dropdown1' class='dropdown-content'>
-        <% @rounds.each do |round| %>
+        <% @tournament.rounds.each do |round| %>
         <li>
             <%= link_to "Round #{round.number + 1}", round_players_url(round) %>
         </li>
@@ -50,7 +50,7 @@
               <th>Options</th>
             </tr>
           </thead>
-          <tbody id="active-players">
+          <tbody id=registered-players">
             <%= render @players %>
           </tbody>
 

@@ -33,8 +33,17 @@
           = f.text_field :state
       .row.margin
         .input-field.col.s4
-          h6 Registration Status:
-          = select_tag("tournament_registration_status", options_for_select(preliminary: 1, final: 2 ))
+          h6 Tournament Registration Status:
+          = select_tag("tournament_registration_status", options_for_select(preliminary: "preliminary", final: "final" ))
+
+
+      .row.margin
+        .col.s12
+          h6 Active in:
+          - @tournament.rounds.each do |r|
+            .col.s3
+              = check_box_tag "round_status[#{ r.id }]", "active", true
+              = label_tag "round_status[#{ r.id }]", "Round #{ r.number + 1 }"
 
       .row.margin
         button.btn.waves-effect.waves-light.col.s12 name="action" type="submit"

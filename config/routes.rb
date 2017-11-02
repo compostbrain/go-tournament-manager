@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   end
   post "/tournaments/:tournament_id/players",
   to: "tournament_registrations#create", as: :tournament_registration
-  patch "/tournaments/:tournament_id/players/:player_id",
+  post "/tournaments/:tournament_id/players/:player_id",
   to: "tournament_registrations#update", as: :update_tournament_registration
 end

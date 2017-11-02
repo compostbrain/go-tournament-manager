@@ -33,7 +33,7 @@ class TournamentsController < ApplicationController
 
   def show
     @tournament = Tournament.find(params[:id])
-    @rounds = @tournament.rounds
+    
     all_players = Player.all
     @players = Player.joins(
       :tournament_registrations,

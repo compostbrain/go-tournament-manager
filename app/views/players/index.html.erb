@@ -26,7 +26,9 @@
           </tr>
         </thead>
         <tbody id="active-players">
-          <%= render @players %>
+          <% @active_players.each do |player| %>
+            <%= render partial "active_player", locals: { player: player } %>
+          <% end %>
         </tbody>
 
       </table>
