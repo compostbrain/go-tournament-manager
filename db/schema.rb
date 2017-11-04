@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20171028190113) do
     t.string "last_name", null: false
     t.string "rank", null: false
     t.string "aga_number", null: false
-    t.date "membership_exp_date"
+    t.date "membership_exp_date", null: false
     t.decimal "rating", null: false
     t.string "chapter_affiliation", null: false
     t.string "state", null: false
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20171028190113) do
   end
 
   create_table "tournament_registrations", force: :cascade do |t|
-    t.integer "status", default: 1
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "player_id"

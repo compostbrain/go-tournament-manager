@@ -18,7 +18,7 @@ class WildApricotImport
       rank: row["Tournament Entry Rank"] || "",
       aga_number: row["AGA ID"] || "",
       membership_exp_date: Date.today,
-      rating: 0,.first_or_initialize
+      rating: 0,
       chapter_affiliation: "UNKNOWN",
       state: "UNKNOWN",
       phone: row["Phone"],

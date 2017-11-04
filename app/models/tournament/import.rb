@@ -1,4 +1,5 @@
 require "csv"
+require_relative "aga_number"
 class Tournament
   class Import
     include ActiveModel::Model
@@ -20,7 +21,7 @@ class Tournament
           if tournament.save
           else
             errors.add(
-              :base, "Line #{$.} - #{tournament.errors.full_messages.join(',')}"
+              :base, "Failed to save tournament. Line #{$.} - #{tournament.errors.full_messages.join(',')}"
             )
           end
           tournament_count += 1
@@ -29,8 +30,8 @@ class Tournament
         player.assign_attributes(
           first_name: row["First name"],
           last_name: row["Last name"],
-          rank: row["Tournament Entry Rank"] || "XXX",
-          aga_number: row["AGA ID"] || "XXXXX",
+          rank: row["Tournament Entry Rank"] || "30 kyu",
+          aga_number: row["AGA ID"] || AgaNumber.auto_assign!,
           membership_exp_date: Date.today,
           rating: 0,
           chapter_affiliation: "XXXX",
@@ -42,7 +43,7 @@ class Tournament
           player_count += 1
         else
           errors.add(
-            :base, "Line #{$.} - #{player.errors.full_messages.join(',')}"
+            :base, "Failed to save player on line #{$.} - #{player.errors.full_messages.join(',')}"
           )
         end
       end

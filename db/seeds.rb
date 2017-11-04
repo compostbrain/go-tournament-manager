@@ -28,16 +28,17 @@ end
 
 100.times do |player|
   fake_rank = RandomData.random_rank
+  first_name = Faker::Name.first_name
   Player.create!(
-    first_name: Faker::Name.first_name,
+    first_name: first_name,
     last_name: Faker::Name.last_name,
     rank: fake_rank,
-    aga_number: Faker::Number.number(5),
+    aga_number: Faker::Number.between(90000, 99999),
     membership_exp_date: Faker::Date.between_except(1.year.from_now, 2.year.from_now, Date.today),
     rating: RandomData.rating_from_rank(fake_rank),
     chapter_affiliation: RandomData.random_chapter,
     state: Faker::Address.state_abbr,
-
+    email: Faker::Internet.email(first_name),
   )
 end
 

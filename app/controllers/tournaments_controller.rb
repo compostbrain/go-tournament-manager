@@ -45,8 +45,6 @@ class TournamentsController < ApplicationController
       @tournaments = Tournament.order(created_at: :desc)
       render action: :index, notice: "There were errors with your CSV file"
     end
-    # Tournament.import params[:file]
-    # redirect_to tournaments_path, notice: "Imported tournament"
   end
 
   private
