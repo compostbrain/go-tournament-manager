@@ -19,8 +19,7 @@ Rails.application.routes.draw do
   end
   resources :games do
   end
-  post "/tournaments/:tournament_id/players",
+
+  patch "/tournaments/:tournament_id/players",
   to: "tournament_registrations#create", as: :tournament_registration
-  post "/tournaments/:tournament_id/players/:player_id",
-  to: "tournament_registrations#update", as: :update_tournament_registration
 end

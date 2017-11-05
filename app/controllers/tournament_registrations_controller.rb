@@ -1,24 +1,24 @@
 class TournamentRegistrationsController < ApplicationController
   def create
     @tournament = Tournament.find(params[:tournament_id])
-    @player = Player.new(player_params)
+    @player = Player.where(aga_number: params[:player][:aga_number]).first_or_initialize(player_params)
 
     @round_statuses = []
 
     if @player.save
-      @tournament_registration = TournamentRegistration.new(
+      @tournament_registration = TournamentRegistration.where(
         player_id: @player.id,
         tournament_id: @tournament.id,
-        status: params[:tournament_registration_status],
-      )
+      ).first_or_initialize(status: params[:tournament_registration_status])
 
       if @tournament_registration.save
         # create player round_statuses
         @tournament.rounds.each do |r|
           rs = r.number.to_s
-          @round_statuses << RoundStatus.new(
+          @round_statuses << RoundStatus.where(
             player_id: @player.id,
             round_id: r.id,
+          ).first_or_initialize(
             status: if params[:round_statuses].include?(rs)
                       1 # enum status: { active: 1, bye: 2 }
                     else
