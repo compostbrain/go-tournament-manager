@@ -1,0 +1,14 @@
+<tr class="registered-player" id="<%= dom_id(player) %>">
+
+  <td><%= player.full_name %></td>
+  <td><%= player.rank %></td>
+  <td><%= player.chapter_affiliation %></td>
+  <td><%= player.first_name %></td>
+  <td>
+    <%= link_to update_tournament_registration_path(
+      @tournament, player) do %>
+      <i class="material-icons">edit</i>
+    <% end %>
+  </td>
+
+</tr>

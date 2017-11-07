@@ -16,6 +16,7 @@ gem "jbuilder", "~> 2.5"
 gem "turbolinks", "~> 5"
 
 group :development, :test do
+  gem "annotate", git: "https://github.com/ctran/annotate_models.git"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "capybara", "~> 2.15", ">= 2.15.1"
   gem "database_cleaner", "~> 1.6", ">= 1.6.1"

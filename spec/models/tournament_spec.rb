@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: tournaments
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  location   :string           not null
+#  begin_date :date             not null
+#  end_date   :date             not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
+
 require 'rails_helper'
 
 RSpec.describe Tournament, type: :model do

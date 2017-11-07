@@ -1,0 +1,49 @@
+#players-new
+    .row
+      .col.s12.center
+        / p.center.player-new-form-text
+        / h2
+        /   span New Player:
+    = form_for @player, url: tournament_registration_path(tournament_id: @tournament.id) do |f|
+      / .row.margin
+      /   = render "shared/alerts", object: @tournament
+      .row.margin
+        .input-field.col.s4
+          = f.label :first_name, autofocus: true
+          = f.text_field :first_name
+        .input-field.col.s4
+          = f.label :last_name
+          = f.text_field :last_name
+        .input-field.col.s4
+          = f.label :rank
+          = f.text_field :rank
+      .row.margin
+        .input-field.col.s3
+          = f.label :aga_number
+          = f.text_field :aga_number
+        .input-field.col.s3
+          = f.label :rating
+          = f.text_field :rating
+        .input-field.col.s3
+          = f.label :club
+          = f.text_field :chapter_affiliation
+        .input-field.col.s3
+          = f.label :state
+          = f.text_field :state
+      .row.margin
+        .input-field.col.s4
+          h6 Status:
+          = select_tag("tournament_registration_status", options_for_select(preliminary: "preliminary", final: "final" ))
+
+
+      .row.margin
+        .col.s12
+          h6 Active in:
+          - @tournament.rounds.each do |r|
+            .col.s3
+              = check_box_tag "round_statuses[#{ r.number }]", "active", true
+              = label_tag "round_statuses[#{ r.number }]", "Round #{ r.number }"
+
+      .row.margin
+        button.btn.waves-effect.waves-light.col.s12 name="action" type="submit"
+          = f.submit 'Save'

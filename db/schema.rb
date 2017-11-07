@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20171028190113) do
   end
 
   create_table "tournament_registrations", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "player_id"

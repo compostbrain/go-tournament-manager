@@ -1,4 +1,5 @@
 $(document).on 'ready turbolinks:load', ->
+  Materialize.updateTextFields();
   $('.datepicker').pickadate({
     selectMonths: true,
     selectYears: 15,

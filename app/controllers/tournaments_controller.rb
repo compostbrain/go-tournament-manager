@@ -17,7 +17,7 @@ class TournamentsController < ApplicationController
     if @tournament.save
       @rounds = []
       params[:tournament][:number_of_rounds].to_i.times do |number|
-        @rounds << Round.new(number: number, tournament: @tournament)
+        @rounds << Round.new(number: number + 1, tournament: @tournament)
       end
 
       if @rounds.each(&:save)
@@ -32,9 +32,15 @@ class TournamentsController < ApplicationController
   end
 
   def show
+    @player = Player.find_by(id: params[:player_id]) || Player.new
     @tournament = Tournament.find(params[:id])
-    @round = @tournament.rounds.where(number: 1)
-    @players = Player.all
+
+    all_players = Player.all
+    @players = Player.joins(
+      :tournament_registrations,
+    ).where(
+      tournament_registrations: { tournament_id: @tournament.id },
+    ).where(id: all_players.map(&:id))
   end
 
   def import
