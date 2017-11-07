@@ -1,20 +1,5 @@
 require "points_calculator"
 class PairingTool
-<<<<<<< HEAD
-  # Group players by rank
-  ABOVE_BAR_RATING_BAND = 4
-  BAND_TWO = 1
-  BAND_THREE = -6
-  BAND_FOUR = -12
-  BAND_FIVE = -31
-  # initial tournament points
-  ABOVE_BAR_ITP = 6
-  BAND_TWO_ITP = 4
-  BAND_THREE_ITP = 3
-  BAND_FOUR_ITP = 2
-  BAND_FIVE_ITP = 0
-=======
->>>>>>> implemented point_calculator class
 
   attr_reader :players, :tournament, :round
   def initialize(players:, tournament:, round:)
