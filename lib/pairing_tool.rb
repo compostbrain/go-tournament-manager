@@ -1,6 +1,5 @@
 require "points_calculator"
 class PairingTool
-
   attr_reader :players, :tournament, :round
   def initialize(players:, tournament:, round:)
     @players = players

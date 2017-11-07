@@ -50,9 +50,12 @@ class PointsCalculator
       tournaments: { id: tournament.id },
     )
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> implemented point_calculator class
+=======
+>>>>>>> rubocop corrections
   end
 
   def initial_tournament_points(player)
@@ -70,7 +73,10 @@ class PointsCalculator
     end
   end
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> implemented point_calculator class
+=======
+>>>>>>> rubocop corrections
 end
