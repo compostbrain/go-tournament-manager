@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   patch "/tournaments/:tournament_id/players",
   to: "tournament_registrations#create", as: :tournament_registration
+  get "tournaments/:tournament_id/standings",
+  to: "standings#index", as: :tournament_standings
 end
