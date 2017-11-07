@@ -26,7 +26,7 @@ class PairingTool
   end
 
   private
-
+  
   # extracted to points_calculator class
   # def initial_tournament_points(player)
   #   player.tournament_points = 0
