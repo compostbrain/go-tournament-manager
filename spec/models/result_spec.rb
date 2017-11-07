@@ -5,8 +5,8 @@ RSpec.describe Result, type: :model do
   describe '#winner' do
 
     before do
-      @white_player = FactoryGirl.create(:player)
-      @black_player = FactoryGirl.create(:player)
+      @white_player = FactoryGirl.create(:player1)
+      @black_player = FactoryGirl.create(:player2)
       @game = FactoryGirl.create(:game, white_player: @white_player, black_player: @black_player)
     end
 
@@ -43,8 +43,8 @@ RSpec.describe Result, type: :model do
 
   describe '#draw' do
     it "returns true if outcome is draw" do
-      white_player = FactoryGirl.create(:player)
-      black_player = FactoryGirl.create(:player)
+      white_player = FactoryGirl.create(:player1)
+      black_player = FactoryGirl.create(:player2)
       game = FactoryGirl.create(:game, white_player: white_player, black_player: black_player)
       result = FactoryGirl.create(:result, game: game, outcome: "draw")
       expect(result.draw).to eq true

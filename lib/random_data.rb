@@ -6,24 +6,25 @@ module RandomData
   end
 
   def self.random_rank
-    rank_letters = ["K", "D", "P"]
-    random_rank = rank_letters.sample
-    if random_rank == "K"
-      rand(1..30).to_s + random_rank
-    else rand(1..9).to_s + random_rank
+    rank_categories = ["kyu", "dan"]
+    random_rank = rank_categories.sample
+    if random_rank == "kyu"
+      rand(1..30).to_s + " " + random_rank
+    else rand(1..9).to_s + " " + random_rank
     end
   end
 
-  def self.rating_from_rank(rating)
-    category = rating[-1]
-    calc_rating = rating.slice(/(\d+)/).to_i
+  def self.rating_from_rank(rank)
+    category = rank.last(3)
+    floated_rating = rank.to_i + rand
+    formated_rating = "%0.05f" % floated_rating
+
+    imitation_aga_rating = BigDecimal(formated_rating)
     case category
-    when "K"
-      calc_rating * -1
-    when "D"
-      calc_rating
-    when "P"
-      calc_rating * 10
+    when "kyu"
+      - imitation_aga_rating
+    when "dan"
+      imitation_aga_rating
     end
   end
 end

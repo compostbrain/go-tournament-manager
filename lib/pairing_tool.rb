@@ -4,7 +4,7 @@ class PairingTool
   BAND_TWO = 1
   BAND_THREE = -6
   BAND_FOUR = -12
-  BAND_FIVE = -30
+  BAND_FIVE = -31
   # initial tournament points
   ABOVE_BAR_ITP = 6
   BAND_TWO_ITP = 4

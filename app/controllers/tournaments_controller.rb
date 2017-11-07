@@ -3,6 +3,7 @@ class TournamentsController < ApplicationController
 
   def index
     @tournaments = Tournament.order(created_at: :desc)
+    @import = Tournament::Import.new
   end
 
   def new
@@ -36,6 +37,16 @@ class TournamentsController < ApplicationController
     @players = Player.all
   end
 
+  def import
+    @import = Tournament::Import.new tournament_import_params
+    if @import.save
+      redirect_to tournaments_path, notice: "Imported tournament successfully"
+    else
+      @tournaments = Tournament.order(created_at: :desc)
+      render action: :index, notice: "There were errors with your CSV file"
+    end
+  end
+
   private
 
   def tournament_params
@@ -50,5 +61,9 @@ class TournamentsController < ApplicationController
 
   def set_tournament
     @tournament = Tournament.find(params[:id])
+  end
+
+  def tournament_import_params
+    params.require(:tournament_import).permit(:file)
   end
 end
