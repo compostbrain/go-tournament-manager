@@ -36,6 +36,8 @@ Need a workflow for how each round will be paired
 - prevent players from receiving byes if they already had a bye from Swissper
 - first round should be paired by split and shift
 
+# TODO Player
+
 # Database set-up
 -  enter in CL:
 ```script

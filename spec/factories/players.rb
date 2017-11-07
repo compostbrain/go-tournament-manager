@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: players
+#
+#  id                  :integer          not null, primary key
+#  first_name          :string           not null
+#  last_name           :string           not null
+#  rank                :string           not null
+#  aga_number          :string           not null
+#  membership_exp_date :date             not null
+#  rating              :decimal(, )      not null
+#  chapter_affiliation :string           not null
+#  state               :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 FactoryGirl.define do
   factory :player do
     factory :player1, parent: :player do

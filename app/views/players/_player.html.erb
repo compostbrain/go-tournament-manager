@@ -3,6 +3,11 @@
   <td><%= player.full_name %></td>
   <td><%= player.rank %></td>
   <td><%= player.chapter_affiliation %></td>
-
+  <td><%= registration_status(@tournament, player) %></td>
+  <td>
+    <%= link_to tournament_path(@tournament, player_id: player.id) do %>
+    <i class="material-icons">edit</i>
+  <% end %>
+</td>
 
 </tr>
