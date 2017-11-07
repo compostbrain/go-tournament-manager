@@ -40,7 +40,6 @@ class PointsCalculator
     ).where(
       tournaments: { id: tournament.id },
     )
-
   end
 
   def initial_tournament_points(player)
@@ -57,5 +56,4 @@ class PointsCalculator
       player.tournament_points = BAND_FIVE_ITP
     end
   end
-
 end
