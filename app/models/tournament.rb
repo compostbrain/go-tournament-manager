@@ -20,9 +20,9 @@ class Tournament < ApplicationRecord
   has_many :games, through: :rounds
   validates :name, presence: true,
                    uniqueness: {
-                                scope: :begin_date,
-                                message: "Should only happen once per year"
-                                }
+                     scope: :begin_date,
+                     message: "Should only happen once per year",
+                   }
   validates :location, presence: true
   validates :begin_date, presence: true
   validates :end_date, presence: true
