@@ -44,7 +44,11 @@ class Player < ApplicationRecord
   end
 
   def self.with_final_registration_statuses(tournament)
+<<<<<<< HEAD
     Player.joins(:tournament_registrations).where(tournament_registrations: { tournament_id: tournament.id, status: "final" })
+=======
+  Player.joins(:tournament_registrations).where(tournament_registrations: {tournament_id: tournament.id, status: "final"})
+>>>>>>> standings controller
   end
 
   def self.sorted_by_rating

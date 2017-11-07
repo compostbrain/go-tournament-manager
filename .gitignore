@@ -20,7 +20,11 @@
 /public/packs
 /public/packs-test
 /node_modules
+<<<<<<< HEAD
 /erd.pdf
 /wildapp_player_import.csv
 /players.csv
 /.pryrc
+=======
+/wildapp_player_import.csv
+>>>>>>> standings controller
