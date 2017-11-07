@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   resources :games do
   end
+  get "tournaments/:tournament_id/standings",
+  to: "standings#index", as: :tournament_standings
 end
