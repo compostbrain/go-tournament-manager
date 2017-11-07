@@ -1,5 +1,5 @@
 require "csv"
-require_relative "aga_number"
+require "aga_number"
 class Tournament
   class Import
     include ActiveModel::Model
@@ -32,9 +32,8 @@ class Tournament
           last_name: row["Last name"],
           rank: row["Tournament Entry Rank"] || "30 kyu",
           aga_number: row["AGA ID"] || AgaNumber.auto_assign!,
-          membership_exp_date: Date.today,
           rating: 0,
-          chapter_affiliation: "XXXX",
+          chapter_affiliation: "XX",
           state: "XX",
           phone: row["Phone"],
           zip: row["Zip"],
