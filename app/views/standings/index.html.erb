@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col s12">
+    <table class="c bordered">
+      <h1>Players</h1>
+      <thead>
+        <tr>
+          <th>Placing</th>
+          <th>Name</th>
+          <th>Rank</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="active-players">
+        <%= render partial: "standings", locals: { players: @players} %>
+      </tbody>
+
+    </table>
+  </div>
