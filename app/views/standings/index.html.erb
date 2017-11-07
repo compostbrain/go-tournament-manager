@@ -2,10 +2,14 @@
   <div class="col s12">
     <table class="c bordered">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <h1>Standings</h1>
 =======
       <h1>Players</h1>
 >>>>>>> standings controller
+=======
+      <h1>Standings</h1>
+>>>>>>> resolved merge conflicts from rebase
       <thead>
         <tr>
           <th>Placing</th>
@@ -16,12 +20,18 @@
       </thead>
       <tbody id="active-players">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <% @players.each do |player| %>
         <%= render partial: "standings", locals: { player: player } %>
         <% end %>
 =======
         <%= render partial: "standings", locals: { players: @players} %>
 >>>>>>> standings controller
+=======
+        <% @players.each do |player| %>
+        <%= render partial: "standings", locals: { player: player } %>
+        <% end %>
+>>>>>>> resolved merge conflicts from rebase
       </tbody>
 
     </table>
