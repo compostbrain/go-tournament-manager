@@ -13,6 +13,7 @@ class Player < ApplicationRecord
   validates :email, presence: true
   validates :rank, presence: true
   validates :rating, presence: true
+  default_scope { order("rating DESC") }
 
   def self.sorted_by_rating
     players = Players.all
