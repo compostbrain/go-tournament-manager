@@ -1,5 +1,24 @@
 require "points_calculator"
 class PairingTool
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  # Group players by rank
+  ABOVE_BAR_RATING_BAND = 4
+  BAND_TWO = 1
+  BAND_THREE = -6
+  BAND_FOUR = -12
+  BAND_FIVE = -31
+  # initial tournament points
+  ABOVE_BAR_ITP = 6
+  BAND_TWO_ITP = 4
+  BAND_THREE_ITP = 3
+  BAND_FOUR_ITP = 2
+  BAND_FIVE_ITP = 0
+=======
+>>>>>>> implemented point_calculator class
+
+>>>>>>> implemented point_calculator class
   attr_reader :players, :tournament, :round
   def initialize(players:, tournament:, round:)
     @players = players
@@ -12,10 +31,14 @@ class PairingTool
 
     sorted_players = players.sort_by(&:rating)
     sorted_players.each do |player|
+<<<<<<< HEAD
       PointsCalculator.new(
         player: player,
         tournament: tournament,
       ).determine_tournament_points(player, tournament)
+=======
+      PointsCalculator.determine_tournament_points(player)
+>>>>>>> implemented point_calculator class
       determine_previous_opponents(player)
     end
 
@@ -26,7 +49,10 @@ class PairingTool
   end
 
   private
+<<<<<<< HEAD
 
+=======
+>>>>>>> implemented point_calculator class
   # extracted to points_calculator class
   # def initial_tournament_points(player)
   #   player.tournament_points = 0
