@@ -32,7 +32,14 @@ class Player < ApplicationRecord
   validates :rank, presence: true
   validates :rating, presence: true
   default_scope { order("rating DESC") }
+<<<<<<< HEAD
   alias_attribute :club, :chapter_affiliation
+=======
+<<<<<<< HEAD
+=======
+  alias_attribute :club, :chapter_affiliation
+>>>>>>> styled players#index page
+>>>>>>> styled players#index page
 
   def self.with_final_registration_statuses(tournament)
     Player.joins(:tournament_registrations).where(

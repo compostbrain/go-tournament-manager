@@ -19,10 +19,6 @@ class PointsCalculator
     @tournament = tournament
   end
 
-<<<<<<< HEAD
-=======
-
->>>>>>> merge conflict repair
   def determine_tournament_points(player, tournament)
     player.tournament_points = initial_tournament_points(player)
     games = gather_games(player)
