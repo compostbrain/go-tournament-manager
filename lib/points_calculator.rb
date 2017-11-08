@@ -14,30 +14,12 @@ class PointsCalculator
 
   attr_reader :players, :tournament
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  def initialize(player:, tournament:)
-    @player = player
-    @tournament = tournament
-  end
-
-  def determine_tournament_points(player, _tournament)
-=======
-  def initialize(players:, tournament:)
-    @players = players
-    @tournament = tournament
-  end
-
-  def determine_tournament_points(player)
->>>>>>> implemented point_calculator class
-=======
   def initialize(player:, tournament:)
     @player = player
     @tournament = tournament
   end
 
   def determine_tournament_points(player, tournament)
->>>>>>> implemented point_calculator class
     player.tournament_points = initial_tournament_points(player)
     games = gather_games(player)
     games.each do |game|
@@ -58,13 +40,6 @@ class PointsCalculator
     ).where(
       tournaments: { id: tournament.id },
     )
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> implemented point_calculator class
-=======
->>>>>>> rubocop corrections
   end
 
   def initial_tournament_points(player)
@@ -81,11 +56,4 @@ class PointsCalculator
       player.tournament_points = BAND_FIVE_ITP
     end
   end
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> implemented point_calculator class
-=======
->>>>>>> rubocop corrections
 end

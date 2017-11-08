@@ -25,7 +25,11 @@ class Tournament
             errors.add(
               :base,
               "Failed to save tournament. Line #{$.} -
+<<<<<<< HEAD
               #{@tournament.errors.full_messages.join(',')}",
+=======
+              #{tournament.errors.full_messages.join(',')}",
+>>>>>>> implemented point_cal class fixes
             )
           end
           tournament_count += 1
@@ -50,6 +54,7 @@ class Tournament
             :base,
             "Failed to save player on line #{$.} -
              #{player.errors.full_messages.join(',')}",
+<<<<<<< HEAD
           )
         end
       end
@@ -61,6 +66,8 @@ class Tournament
           errors.add(
             :base,
             "Failed to create registration for #{player.email}",
+=======
+>>>>>>> implemented point_cal class fixes
           )
         end
       end
