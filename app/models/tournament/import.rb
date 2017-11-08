@@ -53,6 +53,17 @@ class Tournament
           )
         end
       end
+      players.each do |player|
+        tr = TournamentRegistration.new(player_id: player.id, tournament_id: @tournament.id, status: "preliminary")
+        if tr.save
+          tr_count += 1
+        else
+          errors.add(
+            :base,
+            "Failed to create registration for #{player.email}",
+          )
+        end
+      end
     end
 
     def save
