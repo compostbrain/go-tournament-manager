@@ -35,6 +35,7 @@ Need a workflow for how each round will be paired
 # TODOS PairingTool
 - prevent players from receiving byes if they already had a bye from Swissper
 - first round should be paired by split and shift
+- tables should be assigned with highest rank on table 1
 
 # TODO Player
 
