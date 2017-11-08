@@ -1,33 +1,36 @@
 class TournamentRegistrationsController < ApplicationController
+  # def create
+  #   @tournament = Tournament.find(params[:tournament_id])
+  #   @player = Player.find(1)
+  #
+  #   result = CreatePlayerRegistration.execute(@tournament, @player)
+  #
+  #   if result.success?
+  #     redirect_to ..., notice: result.message
+  #   else
+  #     # render an error message
+  #   end
+  # end
+  #
+  # def update
+  #   @tournament = Tournament.find(params[:tournament_id])
+  #   @player = Player.find(1)
+  #
+  #   result = UpdatePlayerRegistration.execute(@tournament, @player)
+  #
+  #   if result.success?
+  #     # redirect_to
+  #   else
+  #     # render an error message
+  #   end
+  # end
+
   def create
     @tournament = Tournament.find(params[:tournament_id])
-    @player = Player.find(1)
-
-    result = CreatePlayerRegistration.execute(@tournament, @player)
-
-    if result.success?
-      redirect_to ..., notice: result.message
-    else
-      # render an error message
-    end
-  end
-
-  def update
-    @tournament = Tournament.find(params[:tournament_id])
-    @player = Player.find(1)
-
-    result = UpdatePlayerRegistration.execute(@tournament, @player)
-
-    if result.success?
-      # redirect_to
-    else
-      # render an error message
-    end
-  end
-
-  def create
-    @tournament = Tournament.find(params[:tournament_id])
-    @player = Player.where(aga_number: params[:player][:aga_number]).first_or_initialize(player_params)
+    @player = Player.where(
+      aga_number: params[:player][:aga_number],
+    ).
+      first_or_initialize(player_params)
 
     @round_statuses = []
 

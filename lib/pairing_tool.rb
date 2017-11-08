@@ -12,9 +12,11 @@ class PairingTool
     # active_players = remove_bye_players(players, round)
 
     sorted_players = players.sort_by(&:rating)
-
     sorted_players.each do |player|
-      PointsCalculator.determine_tournament_points(player)
+      PointsCalculator.new(
+        player: player,
+        tournament: tournament,
+      ).determine_tournament_points(player, tournament)
       determine_previous_opponents(player)
     end
 

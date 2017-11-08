@@ -19,7 +19,11 @@ class PointsCalculator
     @tournament = tournament
   end
 
+<<<<<<< HEAD
   def determine_tournament_points(player, tournament)
+=======
+  def determine_tournament_points(player, _tournament)
+>>>>>>> implemented point_cal class fixes
     player.tournament_points = initial_tournament_points(player)
     games = gather_games(player)
     games.each do |game|

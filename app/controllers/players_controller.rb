@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
                   else
                     Tournament.find(@round.tournament_id)
                   end
-    @active_players = Player.where(round_status(@round, player))
+    @active_players = Tournament.players
     @rounds = @tournament.rounds
 
     @games = @round.games
