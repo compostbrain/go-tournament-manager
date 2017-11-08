@@ -1,5 +1,6 @@
 require 'random_data'
 require "aga_number"
+require "pairing_tool"
 @tournament_director =
   TournamentDirector.create!(
     first_name: "Jason",
@@ -23,11 +24,7 @@ end
 tournaments = Tournament.all
 
 4.times do |round|
-<<<<<<< HEAD
   Round.create!(number: round+ 1, tournament_id: tournaments.first.id)
-=======
-  Round.create!(number: round +1 , tournament_id: tournaments.first.id)
->>>>>>> 4e7a57064503ab188e0b1b4aab7399261324fe98
 end
 
 100.times do |player|
@@ -54,7 +51,7 @@ end
 4.times do |i|
   tournament = Tournament.first
   round = tournament.rounds.find_by(number: i +1 )
-  players =Player.joins(:tournament_registrations).where(tournament_registrations: {tournament_id: tournament.id, status: "final"})
+  players = Player.joins(:tournament_registrations).where(tournament_registrations: {tournament_id: tournament.id, status: "final"})
   players.each do |player|
     RoundStatus.create(round_id: round.id, player_id: player.id, status: "active")
   end
@@ -74,14 +71,14 @@ end
                   round_id: round.id,
                   white_player_id: pairing[0].id,
                   black_player_id: pairing[1].id,
-                  table_number: i,
+                  table_number: i + 1 ,
                 )
               else
                 Game.create!(
                   round_id: round.id,
                   white_player_id: pairing[1].id,
                   black_player_id: pairing[0].id,
-                  table_number: i,
+                  table_number: i + 1,
                 )
 
               end
@@ -94,9 +91,6 @@ end
 puts "1 Tournament Director Created: jason@dragonslayer.com"
 puts "5 Tournaments with 4 rounds each created."
 puts "100 Players created."
-<<<<<<< HEAD
 puts "50 Tournament Registrations created with registered players active in all rounds"
 puts "25 games created for first round"
-=======
 puts "50 tournament registrations created."
->>>>>>> 4e7a57064503ab188e0b1b4aab7399261324fe98

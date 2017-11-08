@@ -33,13 +33,13 @@ class Player < ApplicationRecord
   validates :rating, presence: true
   default_scope { order("rating DESC") }
 
-
   def self.with_final_registration_statuses(tournament)
-    Player.joins(:tournament_registrations).where(tournament_registrations: { tournament_id: tournament.id, status: "final" })
-  end
-
-  def self.with_final_registration_statuses(tournament)
-    Player.joins(:tournament_registrations).where(tournament_registrations: { tournament_id: tournament.id, status: "final" })
+    Player.joins(:tournament_registrations).where(
+      tournament_registrations: {
+        tournament_id: tournament.id,
+        status: "final",
+      },
+    )
   end
 
   def self.sorted_by_rating

@@ -14,12 +14,12 @@ class PointsCalculator
 
   attr_reader :players, :tournament
 
-  def initialize(players:, tournament:)
-    @players = players
+  def initialize(player:, tournament:)
+    @player = player
     @tournament = tournament
   end
 
-  def determine_tournament_points(player)
+  def determine_tournament_points(player, _tournament)
     player.tournament_points = initial_tournament_points(player)
     games = gather_games(player)
     games.each do |game|
