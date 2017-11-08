@@ -22,12 +22,12 @@ class PairingTool
 
     Swissper.pair(
       sorted_players, delta_key: :tournament_points,
-                      exclude_key: :previous_opponents
+                      # exclude_key: :previous_opponents
     )
   end
 
   private
-  
+
   # extracted to points_calculator class
   # def initial_tournament_points(player)
   #   player.tournament_points = 0
