@@ -22,7 +22,7 @@ group :development, :test do
   gem "database_cleaner", "~> 1.6", ">= 1.6.1"
   gem "factory_girl_rails", "~> 4.8"
   gem "poltergeist"
-  gem "rspec-rails", "~> 3.6", ">= 3.6.1"
+  gem "rspec-rails", "~> 3.7"
   gem "rubocop"
   gem "shoulda"
 end
