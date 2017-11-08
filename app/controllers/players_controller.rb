@@ -7,7 +7,11 @@ class PlayersController < ApplicationController
                   else
                     Tournament.find(@round.tournament_id)
                   end
+<<<<<<< HEAD
     @active_players = @round.players
+=======
+    @active_players = Tournament.players
+>>>>>>> implemented point_cal class fixes
     @rounds = @tournament.rounds
 
     @games = @round.games

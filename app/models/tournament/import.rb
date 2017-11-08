@@ -21,7 +21,9 @@ class Tournament
           if tournament.save
           else
             errors.add(
-              :base, "Failed to save tournament. Line #{$.} - #{tournament.errors.full_messages.join(',')}"
+              :base,
+              "Failed to save tournament. Line #{$.} -
+              #{tournament.errors.full_messages.join(',')}",
             )
           end
           tournament_count += 1
@@ -42,7 +44,9 @@ class Tournament
           player_count += 1
         else
           errors.add(
-            :base, "Failed to save player on line #{$.} - #{player.errors.full_messages.join(',')}"
+            :base,
+            "Failed to save player on line #{$.} -
+             #{player.errors.full_messages.join(',')}",
           )
         end
       end

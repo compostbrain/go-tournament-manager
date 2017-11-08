@@ -1,5 +1,6 @@
 require 'random_data'
 require "aga_number"
+require "pairing_tool"
 @tournament_director =
   TournamentDirector.create!(
     first_name: "Jason",
@@ -23,7 +24,11 @@ end
 tournaments = Tournament.all
 
 4.times do |round|
+<<<<<<< HEAD
   Round.create!(number: round + 1, tournament_id: tournaments.first.id)
+=======
+  Round.create!(number: round+ 1, tournament_id: tournaments.first.id)
+>>>>>>> implemented point_cal class fixes
 end
 
 100.times do |player|
@@ -50,7 +55,7 @@ end
 4.times do |i|
   tournament = Tournament.first
   round = tournament.rounds.find_by(number: i +1 )
-  players =Player.joins(:tournament_registrations).where(tournament_registrations: {tournament_id: tournament.id, status: "final"})
+  players = Player.joins(:tournament_registrations).where(tournament_registrations: {tournament_id: tournament.id, status: "final"})
   players.each do |player|
     RoundStatus.create(round_id: round.id, player_id: player.id, status: "active")
   end
@@ -74,7 +79,11 @@ end
                   round_id: round.id,
                   white_player_id: pairing[0].id,
                   black_player_id: pairing[1].id,
+<<<<<<< HEAD
                   table_number: i + 1,
+=======
+                  table_number: i + 1 ,
+>>>>>>> implemented point_cal class fixes
                 )
                 Result.create!( game_id: g.id)
               else
