@@ -1,31 +1,29 @@
 # Go Tournament Manager
 
-Building a go tournament manager to be used by National Go Center
+Building a go tournament manager
 
 Ruby Version 2.4.1
-Rails Version 5.1.2
+Rails Version 5.1.3
 
 ## Models
-- Player
-- [ X ] User/Admin
-- Pairing
+- X Player
+- X User/Director
+- X Game
 - X tournament
-- Rounds
+- X Rounds
+- X TournamentRegistration
+- X RoundStatus
+- X Result
 
 ## Features
-- Tournament set-up with option
+- Import Tournament from CSV
+- Tournament set-up
 - Auto pairing for rounds
-- As an admin I want to create pairings for each round so I can assign players to games.
-Swissper gem for swiss pairing logic
-Game attributes: round_id, white_stones_player_id, black_stones_player_id, table_number, winner_id, loser_id
-Edge cases include odd number of players.
-Need a workflow for how each round will be paired
+- SMS/Email game pairing information
 
-- SMS texting of pairings
--
 
 # UI
-- Use Materialize-sass
+- Uses Materialize-sass
 
 # TODOS PlayersController
 - remove stone_color attribute from players
