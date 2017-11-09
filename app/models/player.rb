@@ -32,7 +32,7 @@ class Player < ApplicationRecord
   validates :rank, presence: true
   validates :rating, presence: true
   default_scope { order("rating DESC") }
-
+  alias_attribute :club, :chapter_affiliation
 
   def self.sorted_by_rating
     players = Players.all

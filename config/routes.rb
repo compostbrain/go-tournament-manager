@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#index"
   resources :tournaments, only: %i[index new create edit show update destroy] do
+    collection do
+      post :import
+    end
     resources :rounds, only: %i[index show create destroy]
     resources :players, only: %i[index update destroy]
   end
