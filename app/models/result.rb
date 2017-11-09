@@ -12,7 +12,14 @@
 class Result < ApplicationRecord
   belongs_to :game
 
-  enum outcome: %w(not_one draw white_won black_forfeit black_won white_forfeit)
+  enum outcome: {
+    undecided: 0,
+    white_won: 1,
+    black_won: 2,
+    white_forfeit: 3,
+    black_forfeit: 4,
+    draw: 5,
+  }
 
   def white_player
     game.white_player
