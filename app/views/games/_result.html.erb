@@ -1,13 +1,11 @@
 <div class="input-field col s12">
    <select>
-     
-
-     <option value="0"><%= Result.outcomes.keys.first.to_s %></option>
-     <option value="1"><%= Result.outcomes.keys.second.to_s %></option>
-     <option value="2"><%= Result.outcomes.keys.third.to_s %></option>
-     <option value="3"><%= Result.outcomes.keys.fourth.to_s %></option>
-     <option value="4"><%= Result.outcomes.keys.fifth.to_s %></option>
-     <option value="5"><%= Result.outcomes.keys.last.to_s %></option>
+     <option value="0"><%= Result.outcomes.keys.first.humanize %></option>
+     <option value="1"><%= Result.outcomes.keys.second.humanize %></option>
+     <option value="2"><%= Result.outcomes.keys.third.humanize %></option>
+     <option value="3"><%= Result.outcomes.keys.fourth.humanize %></option>
+     <option value="4"><%= Result.outcomes.keys.fifth.humanize %></option>
+     <option value="5"><%= Result.outcomes.keys.last.humanize %></option>
    </select>
 
  </div>
