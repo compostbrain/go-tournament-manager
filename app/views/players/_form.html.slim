@@ -1,12 +1,7 @@
 #players-new
     .row
       .col.s12.center
-        / p.center.player-new-form-text
-        / h2
-        /   span New Player:
     = form_for @player, url: tournament_registration_path(tournament_id: @tournament.id) do |f|
-      / .row.margin
-      /   = render "shared/alerts", object: @tournament
       .row.margin
         .input-field.col.s4
           = f.label :first_name, autofocus: true

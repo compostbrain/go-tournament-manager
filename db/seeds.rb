@@ -23,11 +23,7 @@ end
 tournaments = Tournament.all
 
 4.times do |round|
-<<<<<<< HEAD
-  Round.create!(number: round+ 1, tournament_id: tournaments.first.id)
-=======
-  Round.create!(number: round +1 , tournament_id: tournaments.first.id)
->>>>>>> 4e7a57064503ab188e0b1b4aab7399261324fe98
+  Round.create!(number: round + 1, tournament_id: tournaments.first.id)
 end
 
 100.times do |player|
@@ -94,9 +90,6 @@ end
 puts "1 Tournament Director Created: jason@dragonslayer.com"
 puts "5 Tournaments with 4 rounds each created."
 puts "100 Players created."
-<<<<<<< HEAD
 puts "50 Tournament Registrations created with registered players active in all rounds"
 puts "25 games created for first round"
-=======
 puts "50 tournament registrations created."
->>>>>>> 4e7a57064503ab188e0b1b4aab7399261324fe98

@@ -1,0 +1,48 @@
+#players-new
+  .row
+    .col.s12.center
+      = form_for @tournament_registration do |f|
+        = f.hidden_field :tournament_id, value: @tournament.id
+        = f.fields_for :player, @player do |fp|
+          .row.margin
+            .input-field.col.s4
+              = fp.label :first_name, autofocus: true
+              = fp.text_field :first_name
+            .input-field.col.s4
+              = fp.label :last_name
+              = fp.text_field :last_name
+            .input-field.col.s4
+              = fp.label :email
+              = fp.text_field :email
+            .input-field.col.s4
+              = fp.label :rank
+              = fp.text_field :rank
+          .row.margin
+            .input-field.col.s3
+              = fp.label :aga_number
+              = fp.text_field :aga_number
+            .input-field.col.s3
+              = fp.label :rating
+              = fp.text_field :rating
+            .input-field.col.s3
+              = fp.label :club
+              = fp.text_field :chapter_affiliation
+            .input-field.col.s3
+              = fp.label :state
+              = fp.text_field :state
+          .row.margin
+            .input-field.col.s4
+              h6 Status:
+              = select_tag("tournament_registration_status", options_for_select(preliminary: "preliminary", final: "final" ))
+
+
+          .row.margin
+            .col.s12
+              h6 Active in:
+              - @tournament.rounds.each do |r|
+                .col.s3
+                  = check_box_tag "round_statuses[#{ r.number }]", "active", true
+                  = label_tag "round_statuses[#{ r.number }]", "Round #{ r.number }"
+
+        .row.margin
+          = f.submit 'Save'
