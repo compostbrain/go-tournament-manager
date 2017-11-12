@@ -36,7 +36,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.find(params[:id])
     @tournament_registration = TournamentRegistration.find_by(
       player_id: @player.id,
-      tournament_id: @tournament.id
+      tournament_id: @tournament.id,
     ) || TournamentRegistration.new
 
     all_players = Player.all

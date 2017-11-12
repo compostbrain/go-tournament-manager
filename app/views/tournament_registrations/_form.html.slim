@@ -1,7 +1,7 @@
 #players-new
   .row
     .col.s12.center
-      = form_for @tournament_registration do |f|
+      = form_with model: @tournament_registration do |f|
         = f.hidden_field :tournament_id, value: @tournament.id
         = f.fields_for :player, @player do |fp|
           .row.margin

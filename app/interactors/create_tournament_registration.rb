@@ -17,7 +17,7 @@ class CreateTournamentRegistration
     TournamentRegistration.create!(
       player_id: player.id,
       tournament_id: tournament.id,
-      status: tournament_registration_status
+      status: tournament_registration_status,
     )
 
     OpenStruct.new(success?: true, player: player, message: "")
@@ -36,5 +36,4 @@ class CreateTournamentRegistration
       round_status.save!
     end
   end
-
 end

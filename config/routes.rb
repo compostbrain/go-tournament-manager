@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   end
   resources :games do
   end
-  resources :tournament_registrations, only: [:create, :update]
+  resources :tournament_registrations, only: %i[create update]
 end
