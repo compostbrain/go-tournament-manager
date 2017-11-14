@@ -23,8 +23,13 @@ Rails.application.routes.draw do
   resources :games do
   end
 
+<<<<<<< HEAD
   resources :tournament_registrations, only: %i[create update]
 
+=======
+  patch "/tournaments/:tournament_id/players",
+  to: "tournament_registrations#create", as: :tournament_registration
+>>>>>>> 5eb93fb4fef4b2c5b6ceec4930dbc4c8034d47dc
   get "tournaments/:tournament_id/standings",
   to: "standings#index", as: :tournament_standings
 end

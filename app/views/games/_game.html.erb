@@ -1,8 +1,13 @@
 <tr id="game-id">
 
   <td><%= game.table_number %></td>
+<<<<<<< HEAD
   <td><%= game.white_player.full_name %>, <%=  game.white_player.rank %></td>
   <td><%= game.black_player.full_name %>, <%= game.black_player.rank %></td>
+=======
+  <td><%= game.white_player.full_name %>, <%=  game.white_player.rank  %></td>
+  <td><%= game.black_player.full_name%>, <%= game.black_player.rank %></td>
+>>>>>>> 5eb93fb4fef4b2c5b6ceec4930dbc4c8034d47dc
   <td><%= game.handicap %></td>
   <td><%= render partial: "result", locals: { game: game, result: game.result } %></td>
 

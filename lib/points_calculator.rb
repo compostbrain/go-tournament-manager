@@ -19,6 +19,10 @@ class PointsCalculator
     @tournament = tournament
   end
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5eb93fb4fef4b2c5b6ceec4930dbc4c8034d47dc
   def determine_tournament_points(player, tournament)
     player.tournament_points = initial_tournament_points(player)
     games = gather_games(player)
