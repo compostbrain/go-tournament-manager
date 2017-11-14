@@ -32,14 +32,7 @@ class Player < ApplicationRecord
   validates :rank, presence: true
   validates :rating, presence: true
   default_scope { order("rating DESC") }
-<<<<<<< HEAD
   alias_attribute :club, :chapter_affiliation
-=======
-<<<<<<< HEAD
-=======
-  alias_attribute :club, :chapter_affiliation
->>>>>>> styled players#index page
->>>>>>> styled players#index page
 
   def self.with_final_registration_statuses(tournament)
     Player.joins(:tournament_registrations).where(
@@ -50,17 +43,6 @@ class Player < ApplicationRecord
     )
   end
 
-<<<<<<< HEAD
-  def self.with_final_registration_statuses(tournament)
-  Player.joins(:tournament_registrations).where(tournament_registrations: {tournament_id: tournament.id, status: "final"})
-  end
-
-  def self.with_final_registration_statuses(tournament)
-  Player.joins(:tournament_registrations).where(tournament_registrations: {tournament_id: tournament.id, status: "final"})
-  end
-
-=======
->>>>>>> implemented point_cal class fixes
   def self.sorted_by_rating
     players = Players.all
     players.sort_by(&:rating)

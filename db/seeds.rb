@@ -24,11 +24,7 @@ end
 tournaments = Tournament.all
 
 4.times do |round|
-<<<<<<< HEAD
   Round.create!(number: round + 1, tournament_id: tournaments.first.id)
-=======
-  Round.create!(number: round+ 1, tournament_id: tournaments.first.id)
->>>>>>> implemented point_cal class fixes
 end
 
 100.times do |player|
@@ -79,11 +75,8 @@ end
                   round_id: round.id,
                   white_player_id: pairing[0].id,
                   black_player_id: pairing[1].id,
-<<<<<<< HEAD
                   table_number: i + 1,
-=======
-                  table_number: i + 1 ,
->>>>>>> implemented point_cal class fixes
+
                 )
                 Result.create!( game_id: g.id)
               else
