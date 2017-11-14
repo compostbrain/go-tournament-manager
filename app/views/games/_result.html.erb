@@ -1,0 +1,31 @@
+<<<<<<< HEAD
+<%= form_with model: game, id: "game_result_outcome" do |f| %>
+  <%= f.hidden_field :game_id, value: game.id %>
+  <%= f.fields_for :result, result do |fr| %>
+    <div class="input-field col s12">
+      <%= fr.select :outcome, [
+        [Result.outcomes.keys.first.humanize, "undecided"],
+        [Result.outcomes.keys.second.humanize, "white_won"],
+        [Result.outcomes.keys.third.humanize, "black_won"],
+        [Result.outcomes.keys.fourth.humanize, "white_forfeit"],
+        [Result.outcomes.keys.fifth.humanize, "black_forfeit"],
+        [Result.outcomes.keys.last.humanize, "draw"]
+      ],  { selected: game.result.outcome }, { onchange: "$('#game_result_outcome').submit();" }
+
+        %>
+     </div>
+  <% end %>
+<% end %>
+=======
+<div class="input-field col s12">
+   <select>
+     <option value="0"><%= Result.outcomes.keys.first.humanize %></option>
+     <option value="1"><%= Result.outcomes.keys.second.humanize %></option>
+     <option value="2"><%= Result.outcomes.keys.third.humanize %></option>
+     <option value="3"><%= Result.outcomes.keys.fourth.humanize %></option>
+     <option value="4"><%= Result.outcomes.keys.fifth.humanize %></option>
+     <option value="5"><%= Result.outcomes.keys.last.humanize %></option>
+   </select>
+
+ </div>
+>>>>>>> 69dd8a180a8ff3e780e10464d8efd26737b9ec46

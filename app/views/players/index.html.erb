@@ -13,6 +13,13 @@
 
       <% end %>
     </ul>
+    <div class="col s4">
+
+    </div>
+    <div class="col s4">
+      <%= link_to "Enter Game Results", round_games_path(@round), class: "btn waves-effect wvaes-light" %>
+
+    </div>
 
 
   </div>
@@ -58,7 +65,7 @@
         </thead>
         <tbody id="active-players">
           <% @games.each do |game| %>
-            <%= render partial: "games/game", locals: { game: game } %>
+            <%= render partial: "game", locals: { game: game } %>
           <% end %>
         </tbody>
 
