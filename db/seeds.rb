@@ -64,23 +64,32 @@ end
     players: players, tournament: tournament, round: round,
   ).execute
   games = []
-  pairings.each_with_index do |pairing, i|
+  sorted_pairings = pairings.sort_by {
+    |pair| pair[0].rating
+  }
+
+  sorted_pairings.each_with_index do |pairing, i|
     games << if pairing[0].rating >= pairing[1].rating
-                Game.create!(
+                g = Game.create!(
                   round_id: round.id,
                   white_player_id: pairing[0].id,
                   black_player_id: pairing[1].id,
-                  table_number: i,
+                  table_number: i + 1,
                 )
+                Result.create!( game_id: g.id)
               else
-                Game.create!(
+                g = Game.create!(
                   round_id: round.id,
                   white_player_id: pairing[1].id,
                   black_player_id: pairing[0].id,
-                  table_number: i,
+                  table_number: i + 1,
                 )
-
+                Result.create!( game_id: g.id)
               end
+
+    games.each do |game|
+
+    end
   end
 
 

@@ -45,4 +45,5 @@
                   = label_tag "round_statuses[#{ r.number }]", "Round #{ r.number }"
 
         .row.margin
-          = f.submit 'Save'
+          button.btn.waves-effect.waves-light.col.s12 name="action" type="submit"
+            = f.submit 'Save'

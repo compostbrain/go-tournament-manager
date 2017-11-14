@@ -65,7 +65,7 @@
         </thead>
         <tbody id="active-players">
           <% @games.each do |game| %>
-            <%= render partial: "games/game", locals: { game: game } %>
+            <%= render partial: "game", locals: { game: game } %>
           <% end %>
         </tbody>
 
