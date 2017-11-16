@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <table class="c bordered">
+
+        <h1>Standings</h1>
+
+        <thead>
+          <tr>
+            <th>Place</th>
+            <th>Name</th>
+            <th>Rank</th>
+            <th>Rating</th>
+            <th>Club</th>
+            <th>Points</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="active-players">
+
+          <% @players.each_with_index do |player, index | %>
+          <%= render partial: "standings", locals: { index: index, player: player } %>
+          <% end %>
+
+        </tbody>
+
+      </table>
+    </div>
+</div>

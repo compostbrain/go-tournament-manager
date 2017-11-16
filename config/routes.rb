@@ -22,5 +22,9 @@ Rails.application.routes.draw do
   end
   resources :games do
   end
+
   resources :tournament_registrations, only: %i[create update]
+
+  get "tournaments/:tournament_id/standings",
+  to: "standings#index", as: :tournament_standings
 end

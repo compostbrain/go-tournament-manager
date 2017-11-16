@@ -8,20 +8,24 @@ class Tournament
     def process!
       tournament_count = 0
       player_count = 0
+      tr_count = 0
+      players = []
       # import = WildApricotImport.new
       CSV.foreach(file.path, headers: true) do |row|
         if tournament_count.zero?
-          tournament = Tournament.new(
+          @tournament = Tournament.new(
             name: row["Event title"],
             location: row["Event location"],
             begin_date: row["Start date"],
             end_date: row["End date"] || row["Start date"],
             number_of_rounds: 4,
           )
-          if tournament.save
+          if @tournament.save
           else
             errors.add(
-              :base, "Failed to save tournament. Line #{$.} - #{tournament.errors.full_messages.join(',')}"
+              :base,
+              "Failed to save tournament. Line #{$.} -
+              #{@tournament.errors.full_messages.join(',')}",
             )
           end
           tournament_count += 1
@@ -39,10 +43,24 @@ class Tournament
           zip: row["Zip"],
         )
         if player.save
+          players << player
           player_count += 1
         else
           errors.add(
-            :base, "Failed to save player on line #{$.} - #{player.errors.full_messages.join(',')}"
+            :base,
+            "Failed to save player on line #{$.} -
+             #{player.errors.full_messages.join(',')}",
+          )
+        end
+      end
+      players.each do |player|
+        tr = TournamentRegistration.new(player_id: player.id, tournament_id: @tournament.id, status: "preliminary")
+        if tr.save
+          tr_count += 1
+        else
+          errors.add(
+            :base,
+            "Failed to create registration for #{player.email}",
           )
         end
       end

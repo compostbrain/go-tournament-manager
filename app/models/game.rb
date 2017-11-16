@@ -22,4 +22,12 @@ class Game < ApplicationRecord
   belongs_to :black_player, class_name: "Player", foreign_key: "black_player_id"
   accepts_nested_attributes_for :result
   # enum stone_color: { player1_is_white: 1, player1_is_black: 2 }
+
+  # after_create :setup_game_result
+  #
+  #
+  # def setup_game_result
+  #   GameResult.create(...)
+  # end
+
 end

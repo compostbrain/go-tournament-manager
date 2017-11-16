@@ -21,3 +21,7 @@
 /public/packs-test
 /node_modules
 /erd.pdf
+/wildapp_player_import.csv
+/players.csv
+/.pryrc
+/lib/soms.rb
