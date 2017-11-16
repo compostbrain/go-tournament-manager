@@ -68,11 +68,13 @@ class PairingTool
     ).where(
       tournaments: { id: tournament.id },
     )
-    games.each do |game|
-      if game.white_player != player
-        player.previous_opponents << game.white_player
-      elsif game.black_player != player
-        player.previous_opponents << game.black_player
+    if games
+      games.each do |game|
+        if game.white_player != player
+          player.previous_opponents << game.white_player
+        elsif game.black_player != player
+          player.previous_opponents << game.black_player
+        end
       end
     end
   end
