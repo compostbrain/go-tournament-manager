@@ -22,7 +22,7 @@ class PairingTool
 
     Swissper.pair(
       sorted_players, delta_key: :tournament_points,
-                      # exclude_key: :previous_opponents
+                      exclude_key: :previous_opponents
     )
   end
 
@@ -76,6 +76,9 @@ class PairingTool
       end
     end
   end
+
+  # this method removes players who received voluntary bye
+  # for the round being paired
 
   def remove_bye_players(players, round)
     Player.joins(

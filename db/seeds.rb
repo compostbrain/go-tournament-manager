@@ -78,7 +78,7 @@ end
                   table_number: i + 1,
 
                 )
-                Result.create!( game_id: g.id)
+                Result.create!( game_id: g.id, outcome: 0)
               else
                 g = Game.create!(
                   round_id: round.id,
@@ -86,12 +86,10 @@ end
                   black_player_id: pairing[0].id,
                   table_number: i + 1,
                 )
-                Result.create!( game_id: g.id)
+                Result.create!( game_id: g.id, outcome: 0)
               end
 
-    games.each do |game|
 
-    end
   end
 
 

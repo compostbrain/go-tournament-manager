@@ -3,7 +3,7 @@
 # Table name: results
 #
 #  id         :integer          not null, primary key
-#  outcome    :integer          default("not_one")
+#  outcome    :integer          default("undecided")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  game_id    :integer
@@ -30,7 +30,7 @@ class Result < ApplicationRecord
   end
 
   def winner
-    if outcome == "not_one" || outcome == "draw"
+    if outcome == "undecided" || outcome == "draw"
       nil
     elsif outcome == "white_won" || outcome == "black_forfeit"
       white_player
@@ -40,7 +40,7 @@ class Result < ApplicationRecord
   end
 
   def loser
-    if outcome == "not_one" || outcome == "draw"
+    if outcome == "undecided" || outcome == "draw"
       nil
     elsif outcome == "white_won" || outcome == "black_forfeit"
       black_player

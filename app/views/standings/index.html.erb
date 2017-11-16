@@ -1,32 +1,29 @@
-<div class="row">
-  <div class="col s12">
-    <table class="c bordered">
-<<<<<<< HEAD
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <table class="c bordered">
 
-      <h1>Standings</h1>
+        <h1>Standings</h1>
 
-=======
-      <h1>Standings</h1>
->>>>>>> 5eb93fb4fef4b2c5b6ceec4930dbc4c8034d47dc
-      <thead>
-        <tr>
-          <th>Placing</th>
-          <th>Name</th>
-          <th>Rank</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="active-players">
+        <thead>
+          <tr>
+            <th>Place</th>
+            <th>Name</th>
+            <th>Rank</th>
+            <th>Rating</th>
+            <th>Club</th>
+            <th>Points</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="active-players">
 
-        <% @players.each do |player| %>
-        <%= render partial: "standings", locals: { player: player } %>
-        <% end %>
-<<<<<<< HEAD
-  
-=======
+          <% @players.each_with_index do |player, index | %>
+          <%= render partial: "standings", locals: { index: index, player: player } %>
+          <% end %>
 
->>>>>>> 5eb93fb4fef4b2c5b6ceec4930dbc4c8034d47dc
-      </tbody>
+        </tbody>
 
-    </table>
-  </div>
+      </table>
+    </div>
+</div>

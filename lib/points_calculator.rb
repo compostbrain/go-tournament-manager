@@ -1,8 +1,8 @@
 class PointsCalculator
   # Set bands based on player ratings
-  ABOVE_BAR_RATING_BAND = 4
-  BAND_TWO = 1
-  BAND_THREE = -6
+  ABOVE_BAR_RATING_BAND = 4.0
+  BAND_TWO = 1.0
+  BAND_THREE = -6.0
   BAND_FOUR = -12
   BAND_FIVE = -30
   # initial tournament points
@@ -12,17 +12,13 @@ class PointsCalculator
   BAND_FOUR_ITP = 2
   BAND_FIVE_ITP = 0
 
-  attr_reader :players, :tournament
+  attr_reader :player, :tournament
 
   def initialize(player:, tournament:)
     @player = player
     @tournament = tournament
   end
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5eb93fb4fef4b2c5b6ceec4930dbc4c8034d47dc
   def determine_tournament_points(player, tournament)
     player.tournament_points = initial_tournament_points(player)
     games = gather_games(player)
