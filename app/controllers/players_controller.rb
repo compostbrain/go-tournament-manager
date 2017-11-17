@@ -37,9 +37,9 @@ class PlayersController < ApplicationController
   end
 
   def pair
-    @tournament = Tournament.last
     @round = Round.find(params[:round_id])
-    @players = Player.all
+    @tournament = @round.tournament
+    @players = @round.active_players
     pairings = PairingTool.new(
       players: @players, tournament: @tournament, round: @round,
     ).execute
@@ -62,7 +62,7 @@ class PlayersController < ApplicationController
 
                 end
     end
-    redirect_to round_players_url,
+    redirect_to round_players_path(@round),
        notice: "Game Pairings Created for Round  #{@round.number}"
 
     # if @games.each(&:save)

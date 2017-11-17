@@ -1,16 +1,16 @@
-<%= form_with model: game, id: "game_result_outcome" do |f| %>
-  <%= f.hidden_field :game_id, value: game.id %>
-  <%= f.fields_for :result, result do |fr| %>
+<%= form_with model: result, id: "result-outcome-#{result.id}" do |f| %>
     <div class="input-field col s12">
-      <%= fr.select :outcome, [
+      <%= f.select :outcome, [
         [Result.outcomes.keys.first.humanize, "undecided"],
         [Result.outcomes.keys.second.humanize, "white_won"],
         [Result.outcomes.keys.third.humanize, "black_won"],
         [Result.outcomes.keys.fourth.humanize, "white_forfeit"],
         [Result.outcomes.keys.fifth.humanize, "black_forfeit"],
         [Result.outcomes.keys.last.humanize, "draw"]
-      ],  { selected: game.result.outcome }, { onchange: "$('#game_result_outcome').submit();" }
+      ]
         %>
      </div>
-  <% end %>
+  <%= f.submit "Save" %>
 <% end %>
+
+<!-- ,  { selected: result.outcome }, { onchange: "$('result-outcome').submit();" } -->

@@ -27,12 +27,8 @@ module ApplicationHelper
     ).where(id: all_players.map(&:id))
     players
   end
-  # def active_players(round)
-  #   players = registered_players(round.tournament)
-  #   active_players = players.joins(
-  #     round_statuses,
-  #   ).where(
-  #     round_statuses: { round_id: round.id },
-  #   ).where(id: )
-  # end
+
+  def is_path?(*paths)
+    paths.include?(request.path)
+  end
 end

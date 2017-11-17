@@ -29,5 +29,4 @@ class Game < ApplicationRecord
   # def setup_game_result
   #   GameResult.create(...)
   # end
-
 end

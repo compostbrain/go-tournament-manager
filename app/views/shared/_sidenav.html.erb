@@ -1,14 +1,16 @@
 
-    <ul id="slide-out" class="side-nav">
+    <ul id="slide-out" class="side-nav fixed">
 
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
+
           <li class="bold">
-            <a class="collapsible-header waves-effect waves-amber ">Tournament</a>
+            <a class="collapsible-header waves-effect waves-amber ">Tournaments</a>
             <div class="collapsible-body">
               <ul>
                 <li><%= link_to "Select from Listing", tournaments_path %></li>
                 <li><%= link_to "New", new_tournament_path %></li>
+
               </ul>
             </div>
           </li>

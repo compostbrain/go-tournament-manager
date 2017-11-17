@@ -22,7 +22,7 @@ RSpec.describe Result, type: :model do
     end
 
     it "returns nil if outcome is equal to not_one" do
-      result = FactoryGirl.create(:result, game: @game, outcome: "not_one")
+      result = FactoryGirl.create(:result, game: @game, outcome: "undecided")
       expect(result.winner).to eq(nil)
     end
 

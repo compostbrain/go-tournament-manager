@@ -1,0 +1,10 @@
+<li class="bold">
+  <a class="collapsible-header waves-effect waves-amber "><%= @tournament.name.truncate(20) %></a>
+  <div class="collapsible-body">
+    <ul>
+      <li><%= link_to "Standings", tournament_standings_path(@tournament) %></li>
+
+
+    </ul>
+  </div>
+</li>

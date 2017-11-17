@@ -8,7 +8,8 @@ class GamesController < ApplicationController
     if game.result.update!(result_params)
       redirect_to round_games_path(game.round), notice: "Game Result Saved"
     else
-      render round_games_path(game.round), notice: "Error saving game result. Please retry."
+      render round_games_path(game.round),
+      notice: "Error saving game result. Please retry."
     end
   end
 

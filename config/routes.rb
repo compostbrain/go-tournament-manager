@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :rounds do
     resources :players do
-      post :pair, on: :collection
+      get :pair, on: :collection
     end
     resources :games
   end
@@ -20,8 +20,7 @@ Rails.application.routes.draw do
     end
     resources :games
   end
-  resources :games do
-  end
+  resources :results, only: %i[update]
 
   resources :tournament_registrations, only: %i[create update]
 

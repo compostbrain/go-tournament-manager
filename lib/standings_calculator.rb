@@ -1,13 +1,12 @@
 # calculate current standings for tournaments
 # use one of four methods:
-  # SOMS: Sum of McMahon Scores for all opponents
-  # SODOMS: The sum of defeated Opponents McMahon Scores
-  # Face to face result (if applicable)
-  # Random draw
+# SOMS: Sum of McMahon Scores for all opponents
+# SODOMS: The sum of defeated Opponents McMahon Scores
+# Face to face result (if applicable)
+# Random draw
 
 require "points_calculator"
 class StandingsCalculator
-
   attr_reader :players, :tournament # :calculation_method
 
   def initialize(players:, tournament:)
@@ -62,5 +61,4 @@ class StandingsCalculator
       end
     end
   end
-
 end
