@@ -1,3 +1,4 @@
+require "pairing_tool"
 class PlayersController < ApplicationController
   def index
     @round = Round.find(params[:round_id])
