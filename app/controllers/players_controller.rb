@@ -3,11 +3,7 @@ class PlayersController < ApplicationController
   def index
     @round = Round.find(params[:round_id])
 
-    @tournament = if params[:tournament_id].present?
-                    Tournament.find(params[:tournament_id])
-                  else
-                    Tournament.find(@round.tournament_id)
-                  end
+    @tournament = @round.tournament
     @active_players = @round.players
     @rounds = @tournament.rounds
 
@@ -40,7 +36,7 @@ class PlayersController < ApplicationController
   def pair
     @round = Round.find(params[:round_id])
     @tournament = @round.tournament
-    @players = @round.active_players
+    @players = @round.players
     pairings = PairingTool.new(
       players: @players, tournament: @tournament, round: @round,
     ).execute

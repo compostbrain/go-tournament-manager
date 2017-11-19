@@ -71,22 +71,21 @@ end
 
   sorted_pairings.each_with_index do |pairing, i|
     games << if pairing[0].rating >= pairing[1].rating
-                g = Game.create!(
+               Game.create!(
                   round_id: round.id,
                   white_player_id: pairing[0].id,
                   black_player_id: pairing[1].id,
                   table_number: i + 1,
 
                 )
-                Result.create!( game_id: g.id, outcome: 0)
+
               else
-                g = Game.create!(
+                Game.create!(
                   round_id: round.id,
                   white_player_id: pairing[1].id,
                   black_player_id: pairing[0].id,
                   table_number: i + 1,
                 )
-                Result.create!( game_id: g.id, outcome: 0)
               end
 
 

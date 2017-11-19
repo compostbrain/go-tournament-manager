@@ -15,7 +15,7 @@ class PairingTool
       PointsCalculator.new(
         player: player,
         tournament: tournament,
-      ).determine_tournament_points(player, tournament)
+      ).determine_tournament_points
       determine_previous_opponents(player)
     end
 

@@ -17,6 +17,7 @@ class Round < ApplicationRecord
   validates :number, presence: true
 
   def active_players
-    players.joins(:round_statuses).where(round_statuses: { id: id, status: 1 })
+    Player.all.joins(:round_statuses).
+      where(round_statuses: { id: id, status: 1 })
   end
 end

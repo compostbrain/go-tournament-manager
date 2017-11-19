@@ -20,7 +20,7 @@ class StandingsCalculator
       PointsCalculator.new(
         player: player,
         tournament: tournament,
-      ).determine_tournament_points(player, tournament)
+      ).determine_tournament_points
     end
 
     sorted_players = players.sort_by(&:tournament_points).reverse!
