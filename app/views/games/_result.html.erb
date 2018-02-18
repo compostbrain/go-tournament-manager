@@ -7,10 +7,8 @@
         [Result.outcomes.keys.fourth.humanize, "white_forfeit"],
         [Result.outcomes.keys.fifth.humanize, "black_forfeit"],
         [Result.outcomes.keys.last.humanize, "draw"]
-      ]
+      ],  { selected: result.outcome }, { onchange: "$('#result-outcome-#{result.id}').submit();" }
         %>
      </div>
-  <%= f.submit "Save" %>
-<% end %>
 
-<!-- ,  { selected: result.outcome }, { onchange: "$('result-outcome').submit();" } -->
+<% end %>
