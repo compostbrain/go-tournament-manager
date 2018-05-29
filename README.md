@@ -1,6 +1,6 @@
 # Go Tournament Manager
 
-![ScreenShot](/app/assets/images/Screen Shot.png?raw=true "Screen Shot")
+<img width="1333" alt="screen shot" src="https://user-images.githubusercontent.com/13973110/40689688-5393ee70-6371-11e8-9afe-a4d794f73ce6.png">
 
 Ruby Version 2.4.1
 Rails Version 5.1.3
